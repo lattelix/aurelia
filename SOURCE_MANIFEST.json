@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "snapshotSHA256": "10ad7d55c19d82fcbcf6eb9453f8cb8d477c5f11906ebf74c57a8be6304b5f2c",
-  "totalBytes": 27346772,
+  "snapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
+  "totalBytes": 27351957,
   "files": [
     {
       "source": "distribution/source/templates/gitignore",
@@ -2870,8 +2870,8 @@
     {
       "source": "apps/web/src/components/website/product-pages.tsx",
       "path": "apps/web/src/components/website/product-pages.tsx",
-      "bytes": 41912,
-      "sha256": "e70c59babf8c4087171c6a53ba288fb178bf3f3be921b66bed38e2e328b874ea",
+      "bytes": 42892,
+      "sha256": "f299121cb36254e8ebb67fc5963eef2d190ab1b28968f50e179de8b6edf91464",
       "mode": "0644",
       "category": "source"
     },
@@ -4262,8 +4262,8 @@
     {
       "source": "packages/core/src/product-registry.ts",
       "path": "packages/core/src/product-registry.ts",
-      "bytes": 39441,
-      "sha256": "ffa2040b16ac87f4f4406f18f43f7e4418e910e701f42287a75df8104318aacd",
+      "bytes": 40020,
+      "sha256": "325fcce4c1c995438cacaf8b427fe35dd4e769ef12d90cab12072e85d58ea3b5",
       "mode": "0644",
       "category": "source"
     },
@@ -5134,8 +5134,8 @@
     {
       "source": "tests/product-registry.test.ts",
       "path": "tests/product-registry.test.ts",
-      "bytes": 15570,
-      "sha256": "18a1168bd32b602d166624c9349d13dac13dabc629dd5f454fa8d446ab54debe",
+      "bytes": 19196,
+      "sha256": "291a0fa88d5be8c5e4ce91e1fcd3a2cabe7f4fd7fc6bb2421dc7c5d224b87560",
       "mode": "0644",
       "category": "synthetic-test"
     },

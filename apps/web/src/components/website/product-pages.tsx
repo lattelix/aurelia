@@ -87,24 +87,44 @@ function SnapshotNote() {
 }
 
 function SourceNote() {
+  const source = registry.source;
   return (
     <aside className={styles.sourceNote}>
       <ShieldCheck size={21} aria-hidden="true" />
       <div>
-        <strong>Открытое описание. Отдельное решение о выпуске.</strong>
-        <p>
-          Исходный код:{" "}
-          {registry.source.visibility === "private"
-            ? "закрыт"
-            : registry.source.visibility}
-          . Публичная лицензия:{" "}
-          {registry.source.license === "pending"
-            ? "пока не выбрана"
-            : registry.source.license}
-          . Нативные приложения проходят отдельную проверку и подготовку к
-          распространению. Приватная сборка не становится публичным пакетом
-          после теста или установки.
-        </p>
+        {source.visibility === "public-source-preview" ? (
+          <>
+            <strong>Экспериментальный публичный срез исходников.</strong>
+            <p>
+              Отдельный репозиторий Aurelia опубликован под лицензией{" "}
+              {source.license}.{" "}
+              <a
+                href={source.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Исходники Aurelia на GitHub (новая вкладка)"
+              >
+                Исходники Aurelia на GitHub
+              </a>
+              .
+            </p>
+            <p>
+              Web-проверки прошли. Полная сборка опубликованного набора
+              исходников и готовность нативного выпуска ещё требуют проверки.
+              Нативные установщики пока не опубликованы.
+            </p>
+          </>
+        ) : (
+          <>
+            <strong>Открытое описание. Отдельное решение о выпуске.</strong>
+            <p>
+              Исходный код закрыт. Публичная лицензия пока не выбрана. Нативные
+              приложения проходят отдельную проверку и подготовку к
+              распространению. Приватная сборка не становится публичным пакетом
+              после теста или установки.
+            </p>
+          </>
+        )}
       </div>
     </aside>
   );

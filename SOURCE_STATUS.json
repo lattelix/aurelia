@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "state": "review-candidate",
   "releaseReady": false,
-  "snapshotSHA256": "10ad7d55c19d82fcbcf6eb9453f8cb8d477c5f11906ebf74c57a8be6304b5f2c",
+  "snapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
   "safetyScan": "passed-heuristic",
   "sourceBuildVerified": false,
   "binaryReleaseVerified": false,
@@ -30,25 +30,31 @@
     {
       "id": "snapshot-content-review",
       "status": "verified",
-      "detail": "The exact 650-file, 27,346,772-byte inventory was checked by maintainer and independent scoped reviewers. Hashes/sizes matched; 586 text files were scanned for credential, account, signing/device, home/receipt and media-locator data, and 64 binary files received bounded metadata checks. Matches resolved to synthetic/reserved-domain fixtures or public upstream attribution. Separate generated asset inventories and derivative recipes were checked. No concrete P1/P2 found within this scope; heuristic scans are not proof against obfuscation, and compressed JAR/PDF payloads or media content were not exhaustively inspected. This is not legal or binary clearance."
+      "detail": "The baseline 650-file inventory passed maintainer and independent scoped privacy/content checks. The only subsequent authored changes are the reviewed product source-preview schema, SourceNote and synthetic contract tests; source pins and bounded scans are repeated for the exact final inventory. No concrete P1/P2 was found within that scope. Heuristic scans do not prove absence of obfuscation; compressed JAR/PDF payloads and media content were not exhaustively inspected. This is not legal or binary clearance."
     },
     {
       "id": "clean-web-build",
       "status": "verified",
-      "detail": "Clean source projection: npm ci --ignore-scripts --no-audit --no-fund, lint/typecheck, 736 tests in 51 files and production build passed. Six loopback Chromium/WebKit checks passed: synthetic account/playlist/audio/queue/import/logout, responsive layouts and PWA fallback without account API caching. All 650 pinned source hashes, sizes and modes remained unchanged. Local maintainer attestation, not public CI.",
+      "detail": "Clean npm ci --ignore-scripts --no-audit --no-fund passed. Lint, typecheck, all 751 tests in 51 files with one worker, and production build passed with unchanged assertions/timeouts. The initial default two-worker run timed out at the 10-second WASM database setup in two suites; that failed receipt remains recorded. Six Chromium/WebKit loopback music journeys and 12 source-note responsive checks passed. All 650 source hashes/sizes/modes remained unchanged; temporary server stopped. Local maintainer attestation, not public CI.",
       "evidence": {
-        "testedSnapshotSHA256": "10ad7d55c19d82fcbcf6eb9453f8cb8d477c5f11906ebf74c57a8be6304b5f2c",
-        "sourceManifestSHA256": "9e8406aeeba064728e685002f5f022ca143bf9532d5e68ecf2966d799efd7974",
-        "installAndVerifyReceiptSHA256": "8c292420a8535dfb9d85d90ba27903dc4b478a33a9c7d7184326a27ac433579c",
-        "browserReceiptSHA256": "b09ac19407d0769fa82655b10103481836117b190483b3bf6b95dd3eedf459a8",
+        "testedSnapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
+        "sourceManifestSHA256": "d364492a6ef1c5253cf47608a1e845e8fb51a90aeb217d5fc03636809c1b6927",
+        "cleanInstallAndInitialParallelVerifyReceiptSHA256": "62e06c091076fb1ec37245888a7c3a061e538604a16716d183e3422695fa1fb2",
+        "serialFullCheckReceiptSHA256": "13b0358851cb4af36431bebce3e206cb478c9b4de55d848086759b7e5b149895",
+        "browserReceiptSHA256": "c8da15a1e4c3514ea5434db3c4211f7e2534352a5e31172eac10bb4ff81f1906",
         "inputInventoryUnchangedAfterChecks": true,
         "attestation": "maintainer-local-run",
         "nodeVersion": "24.19.0",
         "checks": [
           "npm ci --ignore-scripts --no-audit --no-fund: exit 0",
-          "npm run verify: exit 0",
-          "Chromium/WebKit loopback journeys: 6/6"
-        ]
+          "npm run lint: exit 0",
+          "npm run typecheck: exit 0",
+          "npm test -- --maxWorkers=1: 751/751",
+          "npm run build: exit 0",
+          "Chromium/WebKit loopback music journeys: 6/6",
+          "Chromium/WebKit source-link responsive checks: 12/12"
+        ],
+        "initialParallelVerify": "failed: 10-second database setup hooks in two suites"
       }
     },
     {

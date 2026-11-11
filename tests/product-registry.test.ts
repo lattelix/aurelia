@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { PlatformsPage } from "../apps/web/src/components/website/product-pages";
 import {
   ProductPlatformSchema,
   ProductRegistryV1Schema,
@@ -51,7 +54,7 @@ describe("public product registry v1", () => {
   it("publishes one validated feature pool with explicit platform and distribution facts", () => {
     const value = ProductRegistryV1Schema.parse(snapshot());
     expect(value.schemaVersion).toBe(1);
-    expect(value.reviewedAt).toBe("2026-11-10");
+    expect(value.reviewedAt).toBe("2026-11-11");
     expect(value.features).toHaveLength(24);
     expect(Object.keys(value.distributions).sort()).toEqual(
       [...ProductPlatformSchema.options].sort(),
@@ -73,8 +76,105 @@ describe("public product registry v1", () => {
       });
     for (const platform of ["windows", "linux"] as const)
       expect(value.distributions[platform].status).toBe("planned");
-    expect(value.source).toEqual({ visibility: "private", license: "pending" });
+    expect(value.source).toEqual({
+      visibility: "public-source-preview",
+      license: "GPL-3.0-only",
+      repositoryUrl: "https://github.com/lattelix/aurelia",
+      sourceBuildVerified: false,
+      binaryReleaseVerified: false,
+      releaseReady: false,
+    });
     expect(JSON.stringify(value)).not.toContain("0.1.0");
+  });
+
+  it("preserves the exact private source variant without admitting preview fields", () => {
+    const value = snapshot();
+    value.source = { visibility: "private", license: "pending" };
+    expect(ProductRegistryV1Schema.parse(value).source).toEqual(value.source);
+    expect(
+      ProductRegistryV1Schema.safeParse({
+        ...value,
+        source: {
+          ...value.source,
+          repositoryUrl: "https://github.com/lattelix/aurelia",
+        },
+      }).success,
+    ).toBe(false);
+    expect(
+      ProductRegistryV1Schema.safeParse({
+        ...value,
+        source: { visibility: "private", license: "GPL-3.0-only" },
+      }).success,
+    ).toBe(false);
+  });
+
+  it.each([
+    "sourceBuildVerified",
+    "binaryReleaseVerified",
+    "releaseReady",
+  ] as const)(
+    "requires the preview to retain explicit false %s rather than implying release acceptance",
+    (key) => {
+      const value = snapshot();
+      expect(
+        ProductRegistryV1Schema.safeParse({
+          ...value,
+          source: { ...value.source, [key]: true },
+        }).success,
+      ).toBe(false);
+      const incomplete: Record<string, unknown> = { ...value.source };
+      delete incomplete[key];
+      expect(
+        ProductRegistryV1Schema.safeParse({ ...value, source: incomplete })
+          .success,
+      ).toBe(false);
+    },
+  );
+
+  it.each([
+    "https://github.com/lattelix/aurelia-music",
+    "https://github.com/lattelix/aurelia/releases",
+    "https://github.com/lattelix/aurelia?token=synthetic",
+    "https://github.com/lattelix/aurelia#synthetic",
+    "https://user:password@github.com/lattelix/aurelia",
+    "https://github.com/lattelix/aurelia/",
+    "https://untrusted.invalid/lattelix/aurelia",
+  ])("rejects unapproved source-preview repository URL %s", (repositoryUrl) => {
+    const value = snapshot();
+    expect(
+      ProductRegistryV1Schema.safeParse({
+        ...value,
+        source: { ...value.source, repositoryUrl },
+      }).success,
+    ).toBe(false);
+  });
+
+  it.each(["GPL-3.0-or-later", "MIT", "pending"])(
+    "rejects an unapproved source-preview license %s",
+    (license) => {
+      const value = snapshot();
+      expect(
+        ProductRegistryV1Schema.safeParse({
+          ...value,
+          source: { ...value.source, license },
+        }).success,
+      ).toBe(false);
+    },
+  );
+
+  it("links the experimental source preview accessibly while keeping native installers unavailable", () => {
+    const html = renderToStaticMarkup(createElement(PlatformsPage));
+    expect(html).toContain("Экспериментальный публичный срез исходников.");
+    expect(html).toContain('href="https://github.com/lattelix/aurelia"');
+    expect(html).toContain('target="_blank" rel="noopener noreferrer"');
+    expect(html).toContain(
+      'aria-label="Исходники Aurelia на GitHub (новая вкладка)"',
+    );
+    expect(html).toContain("GPL-3.0-only");
+    expect(html).toContain("Web-проверки прошли.");
+    expect(html).toContain("Нативные установщики пока не опубликованы.");
+    expect(html).not.toContain("Исходный код закрыт.");
+    expect(html).not.toContain("/releases/download/");
   });
 
   it("keeps API evidence distinct from application completeness and public distribution", () => {
@@ -204,7 +304,7 @@ describe("public product registry v1", () => {
       "failed";
     expect(ProductRegistryV1Schema.safeParse(failed).success).toBe(false);
     const future = snapshot();
-    future.evidence[0].checkedAt = "2026-11-11";
+    future.evidence[0].checkedAt = "2026-11-12";
     expect(ProductRegistryV1Schema.safeParse(future).success).toBe(false);
     const absent = snapshot();
     first(absent).platforms.web.implementation.status = "unknown";
@@ -231,7 +331,7 @@ describe("public product registry v1", () => {
     mismatch.distributions.ios.version = "2.0.0";
     expect(ProductRegistryV1Schema.safeParse(mismatch).success).toBe(false);
     const future = releaseFixture();
-    future.distributions.ios.releasedAt = "2026-11-11";
+    future.distributions.ios.releasedAt = "2026-11-12";
     expect(ProductRegistryV1Schema.safeParse(future).success).toBe(false);
   });
 
@@ -381,7 +481,7 @@ describe("public product registry v1", () => {
     expect(ProductRegistryV1Schema.safeParse(value).success).toBe(false);
     reviewed.runningCash.risks =
       "An external provider may introduce ongoing usage charges.";
-    reviewed.reviewedAt = "2026-11-11";
+    reviewed.reviewedAt = "2026-11-12";
     expect(ProductRegistryV1Schema.safeParse(value).success).toBe(false);
     const noMaintenance = {
       ...reviewed,

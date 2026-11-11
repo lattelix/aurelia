@@ -212,16 +212,30 @@ const feature = z
   })
   .strict();
 
+const source = z.discriminatedUnion("visibility", [
+  z
+    .object({
+      visibility: z.literal("private"),
+      license: z.literal("pending"),
+    })
+    .strict(),
+  z
+    .object({
+      visibility: z.literal("public-source-preview"),
+      license: z.literal("GPL-3.0-only"),
+      repositoryUrl: z.literal("https://github.com/lattelix/aurelia"),
+      sourceBuildVerified: z.literal(false),
+      binaryReleaseVerified: z.literal(false),
+      releaseReady: z.literal(false),
+    })
+    .strict(),
+]);
+
 export const ProductRegistryV1Schema = z
   .object({
     schemaVersion: z.literal(1),
     reviewedAt: date,
-    source: z
-      .object({
-        visibility: z.literal("private"),
-        license: z.literal("pending"),
-      })
-      .strict(),
+    source,
     services: z
       .object({
         voting: z.enum(["not-connected", "connected"]),
@@ -654,8 +668,15 @@ const futureDistribution = () => ({
 export const productRegistryV1: ProductRegistryV1 =
   ProductRegistryV1Schema.parse({
     schemaVersion: 1,
-    reviewedAt: "2026-11-10",
-    source: { visibility: "private", license: "pending" },
+    reviewedAt: "2026-11-11",
+    source: {
+      visibility: "public-source-preview",
+      license: "GPL-3.0-only",
+      repositoryUrl: "https://github.com/lattelix/aurelia",
+      sourceBuildVerified: false,
+      binaryReleaseVerified: false,
+      releaseReady: false,
+    },
     services: {
       voting: "connected",
       votingRule: "one-account-one-vote",
