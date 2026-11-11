@@ -1,0 +1,56 @@
+{
+  "name": "spotylie-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @aurelia/web",
+    "build": "npm run build --workspace @aurelia/web",
+    "start": "node scripts/start.mjs",
+    "start:media": "node --import tsx scripts/media-gateway.ts",
+    "start:media:awake": "sh scripts/media-session.sh",
+    "preview:local": "node scripts/preview-local.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint apps packages tests scripts --max-warnings=0",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:migrate": "node --import tsx scripts/migrate.ts",
+    "ios:sync": "npm run sync --workspace @aurelia/mobile",
+    "ios:open": "npm run open --workspace @aurelia/mobile",
+    "ios:build": "node scripts/native-build.mjs ios",
+    "android:sync": "npm run sync:android --workspace @aurelia/mobile",
+    "android:open": "npm run open:android --workspace @aurelia/mobile",
+    "android:build": "node scripts/native-build.mjs android",
+    "native:doctor": "node scripts/native-doctor.mjs",
+    "native:assets": "node scripts/native-assets.mjs",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "jose": "^6.1.0",
+    "lucide-react": "^0.545.0",
+    "openid-client": "^6.8.0",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.6",
+    "zod": "4.6.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.15.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "16.4.5",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "type": "module"
+}

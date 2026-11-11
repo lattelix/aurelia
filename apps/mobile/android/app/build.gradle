@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace = "com.lattelix.aurelia"
+    compileSdk = rootProject.ext.compileSdkVersion
+    buildToolsVersion = '36.0.0'
+    buildFeatures { buildConfig = true }
+    defaultConfig {
+        applicationId "com.lattelix.aurelia"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "0.1.0"
+        buildConfigField 'boolean', 'AURELIA_YOUTUBE_SOURCE_ENABLED',
+            (project.findProperty('aureliaYoutubeSource') ?: 'false').toString().toBoolean().toString()
+        buildConfigField 'boolean', 'AURELIA_SILENT_QA',
+            (project.findProperty('aureliaSilentQa') ?: 'false').toString().toBoolean().toString()
+        manifestPlaceholders['aureliaCleartextTraffic'] = (System.getenv('CAPACITOR_DEV') == 'true').toString()
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            // Exactly the 12 original public Studio samples, packaged as asset:///1.mp3 … 12.mp3.
+            assets.srcDir rootProject.file('../../web/public/audio')
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    def media3Version = "1.11.1"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    implementation project(':capacitor-cordova-android-plugins')
+    implementation project(':youtube-source')
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
+    implementation "androidx.media3:media3-exoplayer:$media3Version"
+    implementation "androidx.media3:media3-session:$media3Version"
+    testImplementation "junit:junit:$junitVersion"
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}

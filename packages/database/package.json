@@ -1,0 +1,14 @@
+{
+  "name": "@aurelia/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@aurelia/core": "*",
+    "@electric-sql/pglite": "0.5.8",
+    "pg": "^8.16.3"
+  }
+}

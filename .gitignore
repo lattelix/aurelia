@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.data/
+.runtime/
+.env
+.env.*
+.vercel/
+*.tsbuildinfo
+.build/
+.gradle/
+local.properties
+**/xcuserdata/
+**/*.xcuserstate
+test-results/
+playwright-report/
+.DS_Store

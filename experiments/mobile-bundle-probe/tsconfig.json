@@ -1,0 +1,50 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "paths": {
+      "@/*": [
+        "apps/web/src/*"
+      ],
+      "@aurelia/*": [
+        "packages/*/src/index.ts"
+      ],
+      "next/link": [
+        "experiments/mobile-bundle-probe/src/navigation.tsx"
+      ],
+      "next/navigation": [
+        "experiments/mobile-bundle-probe/src/navigation.tsx"
+      ],
+      "next/image": [
+        "experiments/mobile-bundle-probe/src/image.tsx"
+      ],
+      "@/lib/client-api": [
+        "experiments/mobile-bundle-probe/src/client-api.ts"
+      ],
+      "react": [
+        "node_modules/@types/react"
+      ],
+      "react/*": [
+        "node_modules/@types/react/*"
+      ],
+      "react-dom/*": [
+        "node_modules/@types/react-dom/*"
+      ],
+      "@fontsource-variable/*": [
+        "node_modules/@fontsource-variable/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "www",
+    "node_modules"
+  ]
+}

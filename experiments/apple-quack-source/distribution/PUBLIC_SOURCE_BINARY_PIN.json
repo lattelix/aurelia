@@ -1,0 +1,13 @@
+{
+  "quackVersion": "0.1.2",
+  "commit": "5af5261d31e50b578e4c81434f6fce8dfd81db93",
+  "kotlinNativeVersion": "2.4.21",
+  "sourceManifestSHA256": "781934eeafbd1e84558a5e2d98063a20e3899a54df936b6884a5783886a0e1a8",
+  "binarySHA256": {
+    "ios-arm64": "a586fb5d79548c40e865a4ac631072c07ed75821df07d17f89014d8663df819a",
+    "macos-arm64": "fb349f0a58aec0e81670296e05baf101e52e3be6c5404851b3cacb31825fa667"
+  },
+  "frameworkTreeSHA256": "d984f29091b0e126b6b30e47c6ec17fccb6b59e17974175bb581c81fb51ebe37",
+  "bridgeSHA256": "80c03c5268613714103ec38abf4bc70f6b3010c1b8730153be4d799be704a4a6",
+  "buildScriptSHA256": "0777e2ca51d9c2433c354abb5cee81c0a3042d75f3f5953c257b07933d671719"
+}

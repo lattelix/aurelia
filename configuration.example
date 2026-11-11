@@ -1,0 +1,8 @@
+# Optional local-only settings. This file contains no credentials.
+APP_URL=http://localhost:3000
+LOCAL_ACCOUNTS=true
+STUDIO_DEMO=true
+WEB_GUEST_VERIFICATION=off
+YOUTUBE_PLAYBACK=audio
+# DATABASE_URL is optional locally; provide your own PostgreSQL URL for hosting.
+# Register providers and supply your own credentials only in ignored local files.

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "state": "review-candidate",
+  "releaseReady": false,
+  "snapshotSHA256": "10ad7d55c19d82fcbcf6eb9453f8cb8d477c5f11906ebf74c57a8be6304b5f2c",
+  "safetyScan": "passed-heuristic",
+  "sourceBuildVerified": false,
+  "binaryReleaseVerified": false,
+  "gates": [
+    {
+      "id": "allowlisted-source-io",
+      "status": "verified",
+      "detail": "Explicit pinned source map, bounded known-pattern content scans, descriptor-relative no-follow IO, 15 Node regressions and 7 deterministic Python IO checks passed. This does not replace full content review."
+    },
+    {
+      "id": "no-private-history",
+      "status": "verified",
+      "detail": "The projected file inventory contains no private Git history, environment/auth data, device/install logs, downloaded library or toolchain/cache outputs. Only selected current source, original/synthetic tests and approved public inputs are copied."
+    },
+    {
+      "id": "license-templates",
+      "status": "verified",
+      "detail": "The stage-only GPL-3.0-only grant and scope were approved and prepared; upstream grants/notices and separate CC0/OFL asset boundaries are retained. Private root licensing/visibility are unchanged; binary license inventory remains separate."
+    },
+    {
+      "id": "runtime-source-inventory",
+      "status": "verified",
+      "detail": "The separate runtime-only native projection verifies 8 unchanged Kotlin sources and its 99-path declared build/license closure; public consumer pin omits only the private receipt reference. Clean native rebuilding remains pending."
+    },
+    {
+      "id": "snapshot-content-review",
+      "status": "verified",
+      "detail": "The exact 650-file, 27,346,772-byte inventory was checked by maintainer and independent scoped reviewers. Hashes/sizes matched; 586 text files were scanned for credential, account, signing/device, home/receipt and media-locator data, and 64 binary files received bounded metadata checks. Matches resolved to synthetic/reserved-domain fixtures or public upstream attribution. Separate generated asset inventories and derivative recipes were checked. No concrete P1/P2 found within this scope; heuristic scans are not proof against obfuscation, and compressed JAR/PDF payloads or media content were not exhaustively inspected. This is not legal or binary clearance."
+    },
+    {
+      "id": "clean-web-build",
+      "status": "verified",
+      "detail": "Clean source projection: npm ci --ignore-scripts --no-audit --no-fund, lint/typecheck, 736 tests in 51 files and production build passed. Six loopback Chromium/WebKit checks passed: synthetic account/playlist/audio/queue/import/logout, responsive layouts and PWA fallback without account API caching. All 650 pinned source hashes, sizes and modes remained unchanged. Local maintainer attestation, not public CI.",
+      "evidence": {
+        "testedSnapshotSHA256": "10ad7d55c19d82fcbcf6eb9453f8cb8d477c5f11906ebf74c57a8be6304b5f2c",
+        "sourceManifestSHA256": "9e8406aeeba064728e685002f5f022ca143bf9532d5e68ecf2966d799efd7974",
+        "installAndVerifyReceiptSHA256": "8c292420a8535dfb9d85d90ba27903dc4b478a33a9c7d7184326a27ac433579c",
+        "browserReceiptSHA256": "b09ac19407d0769fa82655b10103481836117b190483b3bf6b95dd3eedf459a8",
+        "inputInventoryUnchangedAfterChecks": true,
+        "attestation": "maintainer-local-run",
+        "nodeVersion": "24.19.0",
+        "checks": [
+          "npm ci --ignore-scripts --no-audit --no-fund: exit 0",
+          "npm run verify: exit 0",
+          "Chromium/WebKit loopback journeys: 6/6"
+        ]
+      }
+    },
+    {
+      "id": "apple-runtime-closure",
+      "status": "pending",
+      "detail": "Clean external-JDK21/Xcode rebuild, synthetic interop and candidate-pin review remain pending; the separate source manifest/inventory check is verified."
+    },
+    {
+      "id": "android-corresponding-source",
+      "status": "pending",
+      "detail": "Capture exact resolved InnerTubeX/Quack and transitive artifacts, source pins, license texts and checksums."
+    },
+    {
+      "id": "apple-resource-provenance",
+      "status": "verified",
+      "detail": "Six new public PNG derivatives are reproduced exactly from included CC0 SVGs with the included recipe and per-file source/hash mapping. Earlier private PNGs are omitted."
+    },
+    {
+      "id": "native-artifact-correspondence",
+      "status": "pending",
+      "detail": "Tie a newly built native artifact to this exact source/resource snapshot; no correspondence to an earlier private app is claimed."
+    },
+    {
+      "id": "binary-notices",
+      "status": "pending",
+      "detail": "Verify complete license/notices and matching corresponding source in each distributed artifact."
+    },
+    {
+      "id": "security-reporting",
+      "status": "pending",
+      "detail": "Publish and verify a private reporting channel and supported-version policy."
+    },
+    {
+      "id": "publication-approval",
+      "status": "verified",
+      "detail": "Owner requested open-source GitHub publication and delegated the reviewed preparation and continuation. Authorized scope here is a separate experimental GPL-3.0-only source preview after maintainer review. The private development repository/history, user libraries, credentials, paid services and native binary release are outside this publication."
+    }
+  ]
+}

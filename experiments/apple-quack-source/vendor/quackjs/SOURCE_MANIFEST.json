@@ -1,0 +1,109 @@
+{
+  "repository": "https://github.com/MetrolistGroup/quackjs",
+  "tag": "0.1.2",
+  "commit": "5af5261d31e50b578e4c81434f6fce8dfd81db93",
+  "files": [
+    {
+      "path": "LICENSE",
+      "destination": "LICENSE",
+      "gitBlob": "f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+      "bytes": 34674
+    },
+    {
+      "path": "README.md",
+      "destination": "README.md",
+      "gitBlob": "a85fa79dd3e3541d2cdb37cad16ad1e7f593dfcd",
+      "bytes": 2264
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "destination": "THIRD_PARTY_NOTICES.md",
+      "gitBlob": "574f4e65bcf03771c93d440a759a534212c30e07",
+      "bytes": 1234
+    },
+    {
+      "path": "build.gradle.kts",
+      "destination": "upstream-build.gradle.kts",
+      "gitBlob": "bd3a882437382eeedcca0a2e124825dd9c619c6f",
+      "bytes": 4391
+    },
+    {
+      "path": "licenses/Apache-2.0.txt",
+      "destination": "licenses/Apache-2.0.txt",
+      "gitBlob": "137069b823873b8bcf42979bcf8e9371052d26a2",
+      "bytes": 10280
+    },
+    {
+      "path": "licenses/MIT-Dan-Abramov.txt",
+      "destination": "licenses/MIT-Dan-Abramov.txt",
+      "gitBlob": "0504732029dbee9ce4f262dba7a560edd854092e",
+      "bytes": 1072
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/HotCharacterPlan.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/HotCharacterPlan.kt",
+      "gitBlob": "7423314d3a856c119be7fdbe692bf6d836c7da71",
+      "bytes": 6340
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/Limits.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/Limits.kt",
+      "gitBlob": "134fd26e92aa7c6abb180b1d066052303e549747",
+      "bytes": 569
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/Math.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/Math.kt",
+      "gitBlob": "73aba01a44740cf89bbbc8295f77237d98df026a",
+      "bytes": 694
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/PlayerProgram.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/PlayerProgram.kt",
+      "gitBlob": "5e0cf870d68acce19e7d0ad8849fe3f015773da5",
+      "bytes": 27915
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/Runtime.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/Runtime.kt",
+      "gitBlob": "469a9b0d754632cd541e482167cc4f13e63c8b3c",
+      "bytes": 48911
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/SourceIndex.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/SourceIndex.kt",
+      "gitBlob": "e15cf78ac4d4fb505f4357d79d6d2afbba51ed33",
+      "bytes": 28745
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/Specialization.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/Specialization.kt",
+      "gitBlob": "da9a829a6413623fcf69d1a0abfa77a6d239770b",
+      "bytes": 6554
+    },
+    {
+      "path": "src/commonMain/kotlin/meow/nyx/quackjs/Syntax.kt",
+      "destination": "src/commonMain/kotlin/meow/nyx/quackjs/Syntax.kt",
+      "gitBlob": "faf06c32654698175672f6ff68809bc17d2125f6",
+      "bytes": 19532
+    },
+    {
+      "path": "src/commonTest/kotlin/meow/nyx/quackjs/PlayerProgramTest.kt",
+      "destination": "src/commonTest/kotlin/meow/nyx/quackjs/PlayerProgramTest.kt",
+      "gitBlob": "b9e304dfdcc9152516697bb02818d00eb9cf250f",
+      "bytes": 45767
+    },
+    {
+      "path": "src/commonTest/kotlin/meow/nyx/quackjs/RealPlayerSlice.kt",
+      "destination": "src/commonTest/kotlin/meow/nyx/quackjs/RealPlayerSlice.kt",
+      "gitBlob": "f06048312db3a6b17c29bf55d8a69aba1bee320d",
+      "bytes": 15462
+    },
+    {
+      "path": "fixtures/manifest.json",
+      "destination": "fixtures/manifest.json",
+      "gitBlob": "31ba1a95c033f9a4ae233562f03e970289e0b525",
+      "bytes": 3145
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+// Keep the consumer and Capacitor/Cordova on the same tested build plugin.
+// This is project-scoped; generated module files and node_modules stay unchanged.
+gradle.beforeProject { project ->
+    project.buildscript.configurations.configureEach { configuration ->
+        configuration.resolutionStrategy.eachDependency { dependency ->
+            if (dependency.requested.group == 'com.android.tools.build' &&
+                dependency.requested.name == 'gradle') {
+                dependency.useVersion('9.2.1')
+            }
+            if (dependency.requested.group == 'org.jetbrains.kotlin' &&
+                dependency.requested.name == 'kotlin-gradle-plugin') {
+                dependency.useVersion('2.4.21')
+            }
+        }
+    }
+}
+
+include ':app'
+include ':youtube-source'
+include ':capacitor-cordova-android-plugins'
+project(':capacitor-cordova-android-plugins').projectDir = new File('./capacitor-cordova-android-plugins/')
+
+apply from: 'capacitor.settings.gradle'

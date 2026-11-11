@@ -1,0 +1,37 @@
+{
+  "provider": "file",
+  "tracks": [
+    {
+      "id": "sample-1",
+      "title": "Golden Hour",
+      "artist": "Aurelia Studio",
+      "album": "Afterglow",
+      "duration": 72
+    },
+    {
+      "id": "sample-2",
+      "title": "Slow Motion",
+      "artist": "Aurelia Studio",
+      "album": "Blue Hours",
+      "duration": 72
+    },
+    {
+      "id": "sample-3",
+      "title": "A Song That Is Not Here",
+      "artist": "Another Artist",
+      "album": "Lost Recordings",
+      "duration": 214
+    }
+  ],
+  "likes": ["sample-1", "sample-3"],
+  "playlists": [
+    {
+      "id": "sample-playlist",
+      "name": "Imported discoveries",
+      "description": "A sample library to try import and review.",
+      "trackIds": ["sample-1", "sample-2", "sample-3"]
+    }
+  ],
+  "artists": [],
+  "notices": ["File format example. No external account contacted."]
+}

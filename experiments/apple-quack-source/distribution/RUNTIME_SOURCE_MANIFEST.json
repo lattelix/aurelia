@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "sourceScope": "runtime-only",
+  "repository": "https://github.com/MetrolistGroup/quackjs",
+  "tag": "0.1.2",
+  "commit": "5af5261d31e50b578e4c81434f6fce8dfd81db93",
+  "upstreamManifestSHA256": "781934eeafbd1e84558a5e2d98063a20e3899a54df936b6884a5783886a0e1a8",
+  "originalUpstreamEntryCount": 17,
+  "runtimeSourceCount": 8,
+  "excludedUpstreamDestinations": [
+    "src/commonTest/kotlin/meow/nyx/quackjs/PlayerProgramTest.kt",
+    "src/commonTest/kotlin/meow/nyx/quackjs/RealPlayerSlice.kt",
+    "fixtures/manifest.json"
+  ],
+  "licenseInputClosureSHA256": "f9a8b07c4706139a366354c0d47c0ee98a4b9cfa5f86790a7952263f357d9991",
+  "binaryReleaseReady": false,
+  "unverifiedBinaryGates": [
+    "Clean external-JDK21/Xcode rebuild and candidate-pin review",
+    "Final app dependency/notices/corresponding-source packaging"
+  ],
+  "files": [
+    {
+      "path": "apps/mobile/native/AureliaYouTubeNative/scripts/prepare-artifact.py",
+      "role": "artifact-verifier",
+      "bytes": 8614,
+      "sha256": "5a0fc073297b8bcc0b2d7c1ce85b19284bae91e721da84811d4ac39e5bc2a6a5"
+    },
+    {
+      "path": "experiments/apple-quack-source/checks/main.swift",
+      "role": "source-recipe-notice",
+      "bytes": 2835,
+      "sha256": "a403863dfa586fc9e2829502d63ee5a6a2a872037cdb2225b6a5ae9fe202627b"
+    },
+    {
+      "path": "experiments/apple-quack-source/distribution/PUBLIC_SOURCE_BINARY_PIN.json",
+      "role": "source-recipe-notice",
+      "bytes": 681,
+      "sha256": "d341a915052c74b116b6a08e8aff6a6e2923f3cd418231227172d3341b88029b"
+    },
+    {
+      "path": "experiments/apple-quack-source/distribution/README.md",
+      "role": "source-recipe-notice",
+      "bytes": 5685,
+      "sha256": "bb3306cc75e7cca453419d3ef60c3eae0ca471080645642c27557f52837fa7fd"
+    },
+    {
+      "path": "experiments/apple-quack-source/distribution/THIRD_PARTY_NOTICES.md",
+      "role": "source-recipe-notice",
+      "bytes": 1617,
+      "sha256": "3a2c319b12834fd6699a406f762682e458cdbb69daab2b979943fcb5ff377390"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/COPYRIGHT.txt",
+      "role": "kotlin-license-input",
+      "bytes": 647,
+      "sha256": "8f1a1700adb5490604c6094fb137bf73f6c28d3ee554b58f3ff8ef975a79672d"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/COPYRIGHT_HEADER.txt",
+      "role": "kotlin-license-input",
+      "bytes": 208,
+      "sha256": "e2047ed7177b71a0e09d4bfbd8f812a2d1567a36d8c5778d8d31ddda9a440dda"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/NOTICE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 482,
+      "sha256": "0b09a83d3ef7795c7dec65e815866597c066c53898f2852a76599b8f5552941a"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/README.md",
+      "role": "kotlin-license-input",
+      "bytes": 20842,
+      "sha256": "d6967b20368eabd6d5a57f810543d6ed6941c28170eacd92c47f63dc6cae9afb"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/aalto_xml_licence.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/aether_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11248,
+      "sha256": "ed8d7a24769ac9d57d08769b5f8be27519dd8811d06b0995dbe8ca6714e96d08"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/antlr_js_grammar_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1427,
+      "sha256": "806d908d12c587cdcf1a1392ce30a2543befb65af526e55ceec2e997f3ca79aa"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/aosp_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/args4j_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1079,
+      "sha256": "729b7cef12701553c0272bbfd2e70a47ab93065f3be6f846d81e93a091cef340"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/asm_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1598,
+      "sha256": "bf7e5d772c8adf38d16306cba31de6151e1886560d08888bf25defbe8adf725a"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/asmble_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1065,
+      "sha256": "9808ceffe450ef163ae04ba0d42149c3742a55ddd8da580c2471f23a7f79a405"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/assemblyscript_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11356,
+      "sha256": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/boost_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/breakpad_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 64880,
+      "sha256": "69b3d80c19a460e09716910d54d1ada5d800716e2b73751bebac44352590f646"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/caffeine_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/closure-compiler_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/compose_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 10175,
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/dart_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 2323,
+      "sha256": "a572879551b8011db14feb212906d7d690abbe58a7803fb2d6f26abe2197ab0b"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/fastutil_licence",
+      "role": "kotlin-license-input",
+      "bytes": 11386,
+      "sha256": "fb411e13059fe3649b2630d6b94f7a031d089a8a78e49256033c4e3f3da3f1f4"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/glibc_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 3432,
+      "sha256": "0d9caa109990db2b93d423d2425202a6432d25ccfcf12ec482b76da8da93f587"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/gradle-node-plugin_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11323,
+      "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/gradle_custom_user_plugin_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11342,
+      "sha256": "6b1e68ef97f164a0d256d9c7cf53d9f0bfb2a158848495db1bdb8cb9ef0a4850"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/gradle_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 23605,
+      "sha256": "f5e661dc635c82a2dad5a6bd92c71bb89500020865e0b86ffad4bdf764f78e44"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/guava_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/gwt_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/harmony_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/harmony_NOTICE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 563,
+      "sha256": "8a6725437c8f16af6322496d8e22169fdb8988ad43c5b300350ef867fd7d48e4"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/jgit_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1592,
+      "sha256": "5c20fb5295c262aec6a8c33ed6fcd61646624a578f36dfad6b737eb96d5c51e8"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/jquery_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1376,
+      "sha256": "df57d69fba71d2ebca048a5ce37e16f8ebbde334b79bcb2a15d2b58a09d64241"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/jshashtable_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 594,
+      "sha256": "80b825b0d6de67a923091dd9b0ee67b12b3e17c01356c753aed4941c026e51f8"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/json_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1119,
+      "sha256": "3170657e74a094f54a8b84e589eb305fbdcb262566de2f80726342c065ec9a9f"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/karma-teamcity-reporter_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1094,
+      "sha256": "aeec55919caa5b3bc95cd4c8a55f2f94c000db2cb43f16a2ab62d925cb64695b"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/karma_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1077,
+      "sha256": "0ff98105e1a36e8be352d03d38df7ec7d76e2f21118d99308d58f884a19855fb"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/libbacktrace_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1470,
+      "sha256": "660729a7713d03d375b81ec8126f9c801b11d1eacefbe9685185d4c6a24e79cf"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/libffi_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1132,
+      "sha256": "0f4d7a0bfb83c37465d42dc305f124189196cc0cc2cc8d6f8461103682aebbc5"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/llvm_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 3493,
+      "sha256": "c1938c0e9e90639d1e8f5a7f6bebaab83a3642e0ee44295a4c69934686d0bda8"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/lodash_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1966,
+      "sha256": "da079993091381e4b5821647580325329bf3ccdc4fde8cde1797f14483c13bcc"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/lombok_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1076,
+      "sha256": "610f8c0be13ede2ed104952923ba63506ef70543d72941a25fad5e17f90814a2"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/maven_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/mingw-w64-headers_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 7140,
+      "sha256": "438a5157902512cf68cabc494a952bb23439a527497b41593e98cd666d2dc4ec"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/mocha-teamcity-reporter_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1080,
+      "sha256": "ad8f27e36016bd5d48dfb13983d1f7425e8f8dfd567fa63fd18c44d4a9235d90"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/mpmc_queue_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1537,
+      "sha256": "bd41bc36bf821736a2ad3a2f081da9acc9c53ab96c9e375191003c7176d2ef96"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/okhttp_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 587,
+      "sha256": "e666ea4cda8e7122321bec8ea1f18705f469aa859baf921aeb773f549709fcc9"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/opentelemetry_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/playwright_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11399,
+      "sha256": "7fab1461b41970ff376f1c9303a637076bfaaeb71cd12dd3a1c44aaf59a1a2b9"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/power_assert_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/protobuf_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1732,
+      "sha256": "31c7505c31a1ea8557a5362cd69946dc9f5ee80fac8fa1d1b1531c08530497b0"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/prototype_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 934,
+      "sha256": "1bbc0362bf27809b0d5acfd030b955056feb03c781f3c5b8769aaf06e838a9ac"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/rhino_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 49052,
+      "sha256": "8ff4d01abe4b0cd144b7896195924e421bc41a01ffc79080c7b5f2c7d75c1632"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/scala_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1733,
+      "sha256": "8b29107856dc584cf90e8ea7cc5b4847339ec6907d61eafbc5b1a843a832f935"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/sdl_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 877,
+      "sha256": "95b29307711ed750649452bb54cd43956933d90a5127346d989111c63f649e5a"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/sl4f_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1186,
+      "sha256": "b03aefa7c785d4ceeb5a7eba9edf0069978a5f720af538b2286d48c68d029490"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/stax2-api.txt",
+      "role": "kotlin-license-input",
+      "bytes": 388,
+      "sha256": "7f33221dc6c76f3e8ea4111088ec905ca4ba59cdfabd67e27e1953a94d07ae34"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/sun_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 245,
+      "sha256": "1100abb8c9d41eb4a17ff56233e68b49faf1edc6314f9b5a32dde9acd6622f64"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/teamcity-service-messages_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1058,
+      "sha256": "3fa05181e029dfe866e33f825d6879f2bdbd7489368db367e3b1a986a810e72c"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/dagger_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/eclipse_distribution_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1562,
+      "sha256": "d7056f7d7b0754aba44734b48b2c6e9b734c350851765c07d724bb5fb34ec9b3"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/eclipse_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11624,
+      "sha256": "0dba9cd5bc833d6a40f5f5a34db70e37b6ce1cd337dbc2f06ccf1dbc521d2079"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/findbugs_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 26530,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/jspecify_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/lombok_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1075,
+      "sha256": "5d0155eb221fcd5a25bcb0cc4761057a9751b2375615e0435b7630ffc2f0b810"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/rxjava_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/testdata/spring_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/threetenbp_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1520,
+      "sha256": "d1bc53b493a3ab387b42717ed5c4b1976a5048996f81154278100bff86d39331"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/unicode_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 3397,
+      "sha256": "1c3ddd6cc94ad4357e76a589325dd46520850348770536ef66bf8f2b56c77463"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/xcode_license.pdf",
+      "role": "kotlin-license-input",
+      "bytes": 156058,
+      "sha256": "ab9d718cdeb5f7c1b4e15fa7f30045011ca7b628f79147db2bcecc6719add5a2"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/zephyr_LICENSE.txt",
+      "role": "kotlin-license-input",
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "experiments/apple-quack-source/licenses/KotlinNative-2.4.21/third_party/zlib_license.txt",
+      "role": "kotlin-license-input",
+      "bytes": 1101,
+      "sha256": "886b819c33f025e3035abe8dd1e20b4a9b08c8146e25a6228f4f01deb0b42a3e"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/build-framework.sh",
+      "role": "build-or-source-check",
+      "bytes": 862,
+      "sha256": "0777e2ca51d9c2433c354abb5cee81c0a3042d75f3f5953c257b07933d671719"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/build-runtime-framework.py",
+      "role": "build-or-source-check",
+      "bytes": 4008,
+      "sha256": "714f5d7aef0741a3d94bcdc4e513566160cf661f4593886e1a90ee2599d6e4c0"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/build-runtime-framework.sh",
+      "role": "build-or-source-check",
+      "bytes": 139,
+      "sha256": "e42e0e32392de2bbb63cbb0da7bbc53f20abfa99b7d072a4978460aece0aaace"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/check-swift.sh",
+      "role": "build-or-source-check",
+      "bytes": 787,
+      "sha256": "5bfba0da0f3c6b9a52fdbabd53139534df1131a9d91faa61c85ec14c228e1852"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/package-xcframework.sh",
+      "role": "build-or-source-check",
+      "bytes": 362,
+      "sha256": "57b1bcc7deeea7be3f4a93daacc8038288e118ea8b3b4053f3e0ff796dacb849"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/source-packaging.py",
+      "role": "build-or-source-check",
+      "bytes": 8872,
+      "sha256": "4542f642dfe2c9ca2aacc2cf3501af0df33c5c797479c56250d8ef0ec16c2a7d"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/tests/test_native_packaging.py",
+      "role": "build-or-source-check",
+      "bytes": 11593,
+      "sha256": "bb99f5b4b2e375faa3a015337fef570173819fdda6c2cb286508ec1b90263fea"
+    },
+    {
+      "path": "experiments/apple-quack-source/scripts/toolchain.py",
+      "role": "build-or-source-check",
+      "bytes": 1652,
+      "sha256": "e3299b2260edbf591e75d501532aab6cd148a4b5ad51b33b66fea6cad2665730"
+    },
+    {
+      "path": "experiments/apple-quack-source/src/QuackCipherBridge.kt",
+      "role": "bridge",
+      "bytes": 2621,
+      "sha256": "80c03c5268613714103ec38abf4bc70f6b3010c1b8730153be4d799be704a4a6"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/LICENSE",
+      "role": "upstream-build-license",
+      "bytes": 34674,
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/README.md",
+      "role": "upstream-build-license",
+      "bytes": 2264,
+      "sha256": "3ab523748d48ed0b84744c7bc1734d6a5e8134dacb95d7fd21c3443d77f3d91a"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/SOURCE_MANIFEST.json",
+      "role": "upstream-provenance",
+      "bytes": 3811,
+      "sha256": "781934eeafbd1e84558a5e2d98063a20e3899a54df936b6884a5783886a0e1a8"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/THIRD_PARTY_NOTICES.md",
+      "role": "upstream-build-license",
+      "bytes": 1234,
+      "sha256": "ef3a5eafb67a432e1a7f91d1e462c113b529c89bc3f087d8b88855c1e90da1ef"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/licenses/Apache-2.0.txt",
+      "role": "upstream-build-license",
+      "bytes": 10280,
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/licenses/MIT-Dan-Abramov.txt",
+      "role": "upstream-build-license",
+      "bytes": 1072,
+      "sha256": "eea638f0c1fc8bd508e47dbf33a596f98adcc3f14cd1b96b837daf92de142458"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/HotCharacterPlan.kt",
+      "role": "upstream-runtime",
+      "bytes": 6340,
+      "sha256": "0bb6b7850d1b66a648395a39840cf148fcb2626fb469b52240daf1f14c0f5b42"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/Limits.kt",
+      "role": "upstream-runtime",
+      "bytes": 569,
+      "sha256": "251ef4e9ef604122c25edc9a29bb2aca31b19f5b366a7d8029294a4a93a71c07"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/Math.kt",
+      "role": "upstream-runtime",
+      "bytes": 694,
+      "sha256": "6d69c0a61fb41d79a4d3b60d41623296d84dc2eedde885b2dc06c6abb8ea18b3"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/PlayerProgram.kt",
+      "role": "upstream-runtime",
+      "bytes": 27915,
+      "sha256": "961a0ddc333fdcb30f4ea60c4c0e39b4dfedf060dfe7225006245dd48f5c2163"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/Runtime.kt",
+      "role": "upstream-runtime",
+      "bytes": 48911,
+      "sha256": "b7903ce469749e5cf785dc386c2e8acf94f011ec930d59839220a87e35fed5ce"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/SourceIndex.kt",
+      "role": "upstream-runtime",
+      "bytes": 28745,
+      "sha256": "6ffad3a6c81f0f8216dc18576a8f69c53691fffa8878c0cb9678021a073f46d3"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/Specialization.kt",
+      "role": "upstream-runtime",
+      "bytes": 6554,
+      "sha256": "e74bf3896cceafa91a78ecbb51bc0508a8259a1e5bc71ca25122a0b70be87d89"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/src/commonMain/kotlin/meow/nyx/quackjs/Syntax.kt",
+      "role": "upstream-runtime",
+      "bytes": 19532,
+      "sha256": "ae3591e1434af2b9849499f2506293a00a25dfdaa570d4ada17a379c038c7122"
+    },
+    {
+      "path": "experiments/apple-quack-source/vendor/quackjs/upstream-build.gradle.kts",
+      "role": "upstream-build-license",
+      "bytes": 4391,
+      "sha256": "7c394c4d12b1c233e4965bb0ba43118833f55b3c21c024be895f75b2e2bdf6df"
+    }
+  ]
+}

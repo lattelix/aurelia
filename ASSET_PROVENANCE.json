@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/art/afterglow.svg",
+      "originalSHA256": "be2fd8fc686f17feb4257208a8641490b9ddc7f0defd9e2b9a44f53f1ebbbdbc",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Art/afterglow.png",
+      "sha256": "e0ce98d4760341d6cf273255dadd553c3eb206448b5f4336c2957aaf337eb6a9"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "originalSHA256": "564cfec1274251a87f31a9e9a589df0d52f9671f036602ab062d244a360cedfa",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Art/aurelia-icon.png",
+      "sha256": "34bd1194d3b4fdb6d8dff948b5ed86871cf5df56a44868ca9bd6817c8c95775e"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/art/blue-hours.svg",
+      "originalSHA256": "516d8abda5211af690336090082c9bfd40cf4dab25b6ebf9ae79a316e07dc7d2",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Art/blue-hours.png",
+      "sha256": "edd914529c7f145bba430dc8defb1614467e10255ecba993024458550c479e6e"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/art/parallel.svg",
+      "originalSHA256": "1bc9fdd9e13544aae8bc020a026a9ffefdf4c19bf968e867e4cee18e98416a44",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Art/parallel.png",
+      "sha256": "f1cadfcc44a38a34047f3470629d24a5a5f1f99270c5e00bb734fcb92e0bbf6a"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/art/still-life.svg",
+      "originalSHA256": "0bee5991430a61fd2378c9d8b137b9287d71dad68167643c3e5bd1f11cdf8c9c",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Art/still-life.png",
+      "sha256": "06fb119d59e9b63fcd088f9db23bf0c29cb24d356ebd836116bd100c6d8c9793"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/1.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/1.mp3",
+      "sha256": "cf56ce72b6c6410f8dc0b19986735c466cd1f7aac200620c458a21c77c388764"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/10.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/10.mp3",
+      "sha256": "2d115a284c6f7c5232efe33713d1119257a8c27ed0b3a521c143e7c397383aec"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/11.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/11.mp3",
+      "sha256": "91ca3bdd036a45c98623fa50b4b39ddb5b20eaf7d196e41e5557c83681afa783"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/12.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/12.mp3",
+      "sha256": "b471d9cfe7cb9f12e841d299268a43b63bc557d19e6db720713e0aa07118ff6f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/2.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/2.mp3",
+      "sha256": "2980f3193662221e69a4d7e48081654610f205153af21af6f36d9baceebdda82"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/3.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/3.mp3",
+      "sha256": "6eb8ecc6e2a93c081aa3eb443f8418c31a651e7cb1dece13a120c30589009a3f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/4.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/4.mp3",
+      "sha256": "b56606aa39385b1431e55f5d68eb96bdee9b20494c80f959328d835778eab19b"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/5.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/5.mp3",
+      "sha256": "0d7819fc2bf6f18112fe75c161f358eb85b673e614b92a348c8b9b7e21065153"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/6.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/6.mp3",
+      "sha256": "1ad1710b3e239dd5acf8511f5998a288b7517a02c5dc4ae5f0be97053e3b6bd2"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/7.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/7.mp3",
+      "sha256": "e58070e9d39f4dcf2ebb79bd21f95370d6d26e0ad05603aee4d94c146c3b52b3"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/8.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/8.mp3",
+      "sha256": "2b2d870ed398b4aa0780bd6dda7a3fbebed85e32d3328f821403f6952059fd1d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "byte-identical",
+      "original": "apps/web/public/audio/9.mp3",
+      "path": "apps/apple/Sources/AureliaAppleUI/Resources/Audio/9.mp3",
+      "sha256": "f0299a61babd404fc038b1a5d79606a54aa9585115c0877a186f233c469a0318"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "originalSHA256": "564cfec1274251a87f31a9e9a589df0d52f9671f036602ab062d244a360cedfa",
+      "recipe": "apps/apple/scripts/generate-artwork.mjs",
+      "recipeSHA256": "5768001fe1587b957e1d44ff2b91b8a6e5c857f369731271818c8740e770fb5c",
+      "derivationCheck": "exact-bytes-reproduced",
+      "note": "New public derivative; earlier private PNG not copied.",
+      "path": "apps/apple/iOS/Assets.xcassets/AppIcon.appiconset/Icon-1024.png",
+      "sha256": "090245ae0ce53ac9f62ddcce8f3afc9ea0d51741b238897fe81a8ad08f3487ba"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-hdpi/splash.png",
+      "sha256": "21d7849cd2ed76b5261312594682651fa0d60b5c1a57224ef7623fffdce265e9"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-mdpi/splash.png",
+      "sha256": "cc443f8a63d134ec6db364057f96efc7519916729c0735c032dc6bd7a86a5234"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xhdpi/splash.png",
+      "sha256": "5bec71c1bca659b0276879c48bbfa20f1546015e5a4459f4a434c21cb864e587"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xxhdpi/splash.png",
+      "sha256": "7435b6b53f229256f7af67a5c5c3a4cfa44df804135b45e48ec50af8e744c857"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xxxhdpi/splash.png",
+      "sha256": "8c3fc5aea1f5a00c7788be913aa13ae3273d4ee731d01b8fd3ac7bae3d4598ba"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-hdpi/splash.png",
+      "sha256": "05976c0116a2c678fac05b3f1b43f9afad03bd688b7e8ffc3c7c1beaee48a50b"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-mdpi/splash.png",
+      "sha256": "8802357a571ddf882da736c199511eb5c9dfc72b9337843d6772604befac390e"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xhdpi/splash.png",
+      "sha256": "27b4d89e666c0737b14fc5621e737a0ea0f0917f8cbb5236c0ab500962d71b8d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xxhdpi/splash.png",
+      "sha256": "a0dcd9943e64ccb8c98933cf2de2b00c8365714d886ac24938140e10e2729fbe"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xxxhdpi/splash.png",
+      "sha256": "d845b8a72ff38042ae6a89c2b6662dbeb80d51d18fdccdcb4cfe834e079a4a8d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "scripts/native-assets.mjs",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the recipe's original inline splash SVG.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/drawable/splash.png",
+      "sha256": "cc443f8a63d134ec6db364057f96efc7519916729c0735c032dc6bd7a86a5234"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "sha256": "acb684cb4fdbcad680b2dbb8c0db888fdcc87e9da7a1427367b95432bb082b0d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "sha256": "90a438b09382c67ffa5e758a31739cb8f024b266e8050feb9bbbd220b227e0eb"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+      "sha256": "acb684cb4fdbcad680b2dbb8c0db888fdcc87e9da7a1427367b95432bb082b0d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "sha256": "590d0109ffe4af26a7ceaa4c97fd0b6c79036e528e48fb0617a87b78e2b1e1c4"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "sha256": "ebb530bbbe3f387f36bfe7b2a68a3edb371e31868101c04d8a791671278c3675"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+      "sha256": "590d0109ffe4af26a7ceaa4c97fd0b6c79036e528e48fb0617a87b78e2b1e1c4"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "sha256": "a15d03744c9fdfa2cf5dffa53d44b59be506c587bacf85776b36b39fc074dbb8"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "sha256": "5d401a02bd7e8479065bf90ab24b8a6b1bf185db515ee5d4dc673244b8f49597"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+      "sha256": "a15d03744c9fdfa2cf5dffa53d44b59be506c587bacf85776b36b39fc074dbb8"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "sha256": "e9815b95b0366a766162257c8433428e40e480a2b48e8b55558d2c4f58ac8e84"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "sha256": "6f583ecc932d66f63dfb61da37ce54d5caa73630b2b5098785b125e6352f732e"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+      "sha256": "e9815b95b0366a766162257c8433428e40e480a2b48e8b55558d2c4f58ac8e84"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "sha256": "20aff19c73a354a3f89b70807af590558dfa0bd1e15a11759414dd2b3c382f63"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "sha256": "937f40ff1f9ebef88cb50e30565f2c504fcba9c5a1e76527372b2a228163c154"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "native-derivative",
+      "original": "apps/web/public/icon.svg",
+      "recipe": "scripts/native-assets.mjs",
+      "note": "Exact bytes reproduced from the original web icon and pinned recipe.",
+      "derivationCheck": "exact-bytes-reproduced",
+      "recipeSHA256": "c1055e9e73b4463cfc81da1d8f43b84e71cf90ce1346c6e7ea3061ceed89e414",
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+      "sha256": "20aff19c73a354a3f89b70807af590558dfa0bd1e15a11759414dd2b3c382f63"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/afterglow.svg",
+      "sha256": "be2fd8fc686f17feb4257208a8641490b9ddc7f0defd9e2b9a44f53f1ebbbdbc"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/artist.svg",
+      "sha256": "1bc9fdd9e13544aae8bc020a026a9ffefdf4c19bf968e867e4cee18e98416a44"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/blue-hours.svg",
+      "sha256": "516d8abda5211af690336090082c9bfd40cf4dab25b6ebf9ae79a316e07dc7d2"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/hero.svg",
+      "sha256": "cea1cc6a316a7d5baae66e9c7ef915ca72c3840637ab3b49d178431e6925ed13"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/art/listening/deep-focus.webp",
+      "sha256": "913a26e91aadc9f7a2c6508169e44a46a11f5c93e3e5788eedf83ccc46cbd152"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/art/listening/night-city.webp",
+      "sha256": "cc8bbd39143fda220021b4a930a9369dcdf61953e7ebbe02d471292494915eeb"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/art/listening/slow-sundays.webp",
+      "sha256": "2f2a7ce5b467c1138450c414c654bcbd1834b1d979c47f3fc72ee5d70b226a7f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/art/listening/warm-evening.webp",
+      "sha256": "c17304b62e95812c7d6f7776f99795f49339afa673b0c8d8f06597416f79c74f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/parallel.svg",
+      "sha256": "1bc9fdd9e13544aae8bc020a026a9ffefdf4c19bf968e867e4cee18e98416a44"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/art/still-life.svg",
+      "sha256": "0bee5991430a61fd2378c9d8b137b9287d71dad68167643c3e5bd1f11cdf8c9c"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/1.mp3",
+      "sha256": "cf56ce72b6c6410f8dc0b19986735c466cd1f7aac200620c458a21c77c388764"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/10.mp3",
+      "sha256": "2d115a284c6f7c5232efe33713d1119257a8c27ed0b3a521c143e7c397383aec"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/11.mp3",
+      "sha256": "91ca3bdd036a45c98623fa50b4b39ddb5b20eaf7d196e41e5557c83681afa783"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/12.mp3",
+      "sha256": "b471d9cfe7cb9f12e841d299268a43b63bc557d19e6db720713e0aa07118ff6f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/2.mp3",
+      "sha256": "2980f3193662221e69a4d7e48081654610f205153af21af6f36d9baceebdda82"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/3.mp3",
+      "sha256": "6eb8ecc6e2a93c081aa3eb443f8418c31a651e7cb1dece13a120c30589009a3f"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/4.mp3",
+      "sha256": "b56606aa39385b1431e55f5d68eb96bdee9b20494c80f959328d835778eab19b"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/5.mp3",
+      "sha256": "0d7819fc2bf6f18112fe75c161f358eb85b673e614b92a348c8b9b7e21065153"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/6.mp3",
+      "sha256": "1ad1710b3e239dd5acf8511f5998a288b7517a02c5dc4ae5f0be97053e3b6bd2"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/7.mp3",
+      "sha256": "e58070e9d39f4dcf2ebb79bd21f95370d6d26e0ad05603aee4d94c146c3b52b3"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/8.mp3",
+      "sha256": "2b2d870ed398b4aa0780bd6dda7a3fbebed85e32d3328f821403f6952059fd1d"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/audio/9.mp3",
+      "sha256": "f0299a61babd404fc038b1a5d79606a54aa9585115c0877a186f233c469a0318"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/icon-192.png",
+      "sha256": "20aff19c73a354a3f89b70807af590558dfa0bd1e15a11759414dd2b3c382f63"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": null,
+      "path": "apps/web/public/icon-512.png",
+      "sha256": "34bd1194d3b4fdb6d8dff948b5ed86871cf5df56a44868ca9bd6817c8c95775e"
+    },
+    {
+      "grant": "CC0-1.0",
+      "kind": "owner-declared-original",
+      "reference": "THIRD_PARTY_NOTICES.md",
+      "generator": "scripts/generate-assets.py",
+      "path": "apps/web/public/icon.svg",
+      "sha256": "564cfec1274251a87f31a9e9a589df0d52f9671f036602ab062d244a360cedfa"
+    }
+  ]
+}

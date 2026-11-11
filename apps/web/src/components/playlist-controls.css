@@ -1,0 +1,77 @@
+.playlist-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 14px;
+  margin: 20px 0;
+}
+.playlist-collection-actions {
+  flex-wrap: wrap;
+}
+.playlist-controls > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 160px;
+  min-width: 0;
+  font-size: 12px;
+}
+.playlist-controls input,
+.playlist-controls select {
+  width: 100%;
+  min-width: 0;
+}
+.playlist-editor textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  background: var(--field);
+  color: var(--text);
+}
+.playlist-delete .dialog-head h2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.playlist-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.playlist-dialog-actions > button {
+  flex: 1 1 120px;
+}
+.playlist-order-list {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+  max-height: 48dvh;
+  overflow: auto;
+}
+.playlist-order-list > li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.playlist-order-track {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.playlist-order-track small {
+  display: block;
+  color: var(--muted);
+}
+.playlist-order-list .icon-button {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+}
+.playlist-order-status {
+  min-height: 1.5em;
+}

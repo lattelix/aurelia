@@ -1,0 +1,316 @@
+.section {
+  --participation-line: var(
+    --site-line,
+    color-mix(in srgb, var(--text) 15%, transparent)
+  );
+  --participation-panel: var(--site-panel, var(--surface));
+  --participation-muted: var(--site-muted, var(--muted-strong));
+  min-width: 0;
+  margin-block: 48px;
+  padding-block-start: 32px;
+  border-block-start: 1px solid var(--participation-line);
+  color: var(--text);
+  line-height: 1.65;
+}
+.heading {
+  max-width: 720px;
+  margin-block-end: 28px;
+}
+.heading h2 {
+  margin: 10px 0 16px;
+  font-family: "Manrope Variable", sans-serif;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 620;
+}
+.heading p {
+  color: var(--participation-muted);
+  margin: 0;
+}
+.eyebrow {
+  color: var(--participation-muted);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.section h3 {
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 21px;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+  margin: 0 0 18px;
+}
+.section a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.section :is(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.muted,
+.hint {
+  color: var(--participation-muted);
+}
+.hint {
+  font-size: 12px;
+  line-height: 1.65;
+  margin-block: 6px 0;
+}
+.state,
+.notice,
+.error,
+.empty {
+  padding: 16px 18px;
+  border: 1px solid var(--participation-line);
+  border-radius: 12px;
+  background: var(--participation-panel);
+  margin-block: 16px;
+  overflow-wrap: anywhere;
+}
+.state p {
+  margin-block: 0 12px;
+}
+.notice {
+  border-inline-start: 3px solid var(--accent);
+}
+.error {
+  border-inline-start: 3px solid #bb6a66;
+}
+.primary,
+.secondary,
+.danger {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--participation-line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.primary {
+  background: var(--text);
+  color: var(--site-bg, var(--bg));
+}
+.secondary {
+  background: transparent;
+  color: var(--text);
+}
+.danger {
+  background: transparent;
+  color: var(--text);
+  border-color: color-mix(in srgb, #bb6a66 60%, var(--participation-line));
+}
+:is(.primary, .secondary, .danger):disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+:is(.primary, .secondary, .danger):not(:disabled):hover {
+  border-color: var(--accent);
+}
+.voteList,
+.feedbackList {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: grid;
+  gap: 12px;
+}
+.voteRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--participation-panel);
+  border: 1px solid var(--participation-line);
+  border-radius: 16px;
+  min-width: 0;
+}
+.voteRow > div {
+  min-width: 0;
+}
+.voteRow > div > a {
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.voteRow > div > a:hover {
+  text-decoration: underline;
+}
+.voteRow p {
+  margin-block: 6px 0;
+  font-size: 12px;
+}
+.voteRow button {
+  justify-self: start;
+}
+.form {
+  margin-block: 28px;
+  padding: 22px;
+  border: 1px solid var(--participation-line);
+  border-radius: 18px;
+  background: var(--participation-panel);
+}
+.fields {
+  display: grid;
+  gap: 18px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.fields label {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.fields label > .hint {
+  display: inline;
+  font-weight: 400;
+}
+.fields :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--participation-line);
+  border-radius: 9px;
+  background: var(--site-bg, var(--bg));
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 12px;
+}
+.fields select {
+  text-overflow: ellipsis;
+}
+.fields textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.formRow {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.listHeading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 32px 20px;
+}
+.listHeading h3 {
+  margin: 0;
+}
+.feedbackCard {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--participation-line);
+  border-radius: 16px;
+  background: var(--participation-panel);
+}
+.itemMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--participation-muted);
+}
+.feedbackCard h4 {
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 12px 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-block: 14px 22px;
+}
+.confirmation {
+  --participation-line: color-mix(in srgb, var(--text) 15%, transparent);
+  width: min(440px, calc(100% - 32px));
+  box-sizing: border-box;
+  max-height: calc(100svh - 40px);
+  overflow: auto;
+  padding: 26px;
+  border: 1px solid var(--participation-line);
+  border-radius: 18px;
+  background: var(--site-panel, var(--surface));
+  color: var(--text);
+}
+.confirmation::backdrop {
+  background: #0008;
+}
+.confirmation h3 {
+  margin-top: 0;
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 23px;
+}
+.confirmation p {
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+  margin-block: 16px 24px;
+}
+.confirmation :is(button):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (min-width: 640px) {
+  .voteRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+  }
+  .voteRow button {
+    justify-self: end;
+  }
+  .formRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+  .form {
+    padding: 28px;
+  }
+}
+@media (max-width: 389px) {
+  .form,
+  .feedbackCard,
+  .voteRow {
+    padding: 16px;
+  }
+  .actions > button {
+    width: 100%;
+  }
+}

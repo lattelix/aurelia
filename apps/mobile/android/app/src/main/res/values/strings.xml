@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Aurelia</string>
+    <string name="title_activity_main">Aurelia</string>
+    <string name="package_name">com.lattelix.aurelia</string>
+    <string name="custom_url_scheme">com.lattelix.aurelia</string>
+</resources>

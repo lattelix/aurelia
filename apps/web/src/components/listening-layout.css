@@ -1,0 +1,811 @@
+/* One viewport, one scroll owner, one playback dock. No platform material is
+   emulated here; presets supply colors/radii and Capacitor supplies safe areas. */
+:root {
+  --app-safe-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  --app-safe-right: var(
+    --safe-area-inset-right,
+    env(safe-area-inset-right, 0px)
+  );
+  --app-safe-bottom: var(
+    --safe-area-inset-bottom,
+    env(safe-area-inset-bottom, 0px)
+  );
+  --app-safe-left: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
+  --layout-gutter: clamp(20px, 3vw, 44px);
+  --mini-player-height: 64px;
+  --mobile-navigation-height: 72px;
+}
+
+html,
+body {
+  block-size: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  position: relative;
+  inset-block-start: var(--app-offset-top, 0px);
+  block-size: var(--app-height, 100dvh);
+  inline-size: 100%;
+  min-inline-size: 0;
+  overflow: hidden;
+}
+
+.app-shell > .sidebar {
+  grid-area: 1 / 1;
+  position: relative;
+  inset: auto;
+  inline-size: auto;
+  min-block-size: 0;
+  padding-block-start: max(28px, var(--app-safe-top));
+  padding-inline-start: max(20px, var(--app-safe-left));
+  overscroll-behavior: contain;
+}
+
+.app-shell > .main-shell {
+  grid-area: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  min-block-size: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-shell > .topbar {
+  flex: 0 0 auto;
+  block-size: auto;
+  min-block-size: calc(80px + var(--app-safe-top));
+  padding: var(--app-safe-top) max(var(--layout-gutter), var(--app-safe-right))
+    0 var(--layout-gutter);
+}
+
+.main-shell > .network-banner {
+  flex: 0 0 auto;
+}
+
+.main-shell > main {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-padding-block: 24px;
+}
+
+.main-shell .page {
+  inline-size: 100%;
+  padding: 28px max(var(--layout-gutter), var(--app-safe-right)) 32px
+    var(--layout-gutter);
+}
+
+.playback-dock {
+  grid-area: 2 / 1 / 3 / -1;
+  display: grid;
+  grid-auto-rows: auto;
+  position: relative;
+  isolation: isolate;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding-inline: var(--app-safe-left) var(--app-safe-right);
+  padding-block-end: var(--app-safe-bottom);
+  border-block-start: 1px solid var(--border);
+  background: var(--panel);
+  z-index: 40;
+}
+
+.playback-dock > .player-bar {
+  position: relative;
+  inset: auto;
+  block-size: auto;
+  min-block-size: 88px;
+  min-inline-size: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 1.2fr) minmax(0, 0.8fr);
+  padding: 10px var(--layout-gutter);
+  gap: 20px;
+  border: 0;
+}
+
+.playback-dock > .youtube-dock {
+  /* A video is a card above the transport, never a full-width grid row. */
+  --youtube-card-width: min(376px, calc(100vw - 32px));
+  --youtube-card-height: calc(
+    max(200px, (var(--youtube-card-width) - 18px) * 9 / 16) + 70px
+  );
+  position: fixed;
+  inset-block-start: calc(
+    var(--app-offset-top, 0px) +
+      max(
+        8px,
+        var(--app-height, 100dvh) - var(--playback-dock-height, 88px) -
+          var(--youtube-card-height) - var(--youtube-error-space, 0px) - 12px
+      )
+  );
+  inset-block-end: auto;
+  inset-inline-end: max(16px, var(--app-safe-right));
+  inline-size: var(--youtube-card-width);
+  min-inline-size: 0;
+  margin: 0;
+  max-inline-size: calc(100% - 32px);
+  max-block-size: calc(var(--app-height, 100dvh) - 16px);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.playback-dock > .youtube-dock-error {
+  --youtube-error-space: 60px;
+}
+
+.playback-dock .youtube-dock iframe {
+  block-size: 100%;
+  min-block-size: 200px;
+  max-inline-size: 100%;
+}
+
+.toast {
+  inset-block-end: calc(
+    100dvh - var(--app-offset-top, 0px) - var(--app-height, 100dvh) +
+      var(--playback-dock-height, 88px) + 12px
+  );
+  max-block-size: calc(var(--app-height, 100dvh) - 24px);
+  overflow: auto;
+}
+
+.dialog {
+  --dialog-edge: 16px;
+  position: fixed;
+  inset-block-start: calc(var(--app-offset-top, 0px) + var(--dialog-edge));
+  inset-block-end: calc(
+    100dvh - var(--app-offset-top, 0px) - var(--app-height, 100dvh) +
+      var(--dialog-edge)
+  );
+  max-block-size: calc(var(--app-height, 100dvh) - 2 * var(--dialog-edge));
+  margin-block: auto;
+  min-block-size: 0;
+  border-radius: var(--dialog-radius, 24px);
+  scroll-padding-block: 16px;
+}
+
+.home-page .page-heading {
+  margin-block-end: 24px;
+}
+
+.listening-home {
+  background: var(--ambient-wash, none);
+}
+
+.home-page .page-heading h1 {
+  font-size: clamp(30px, 3.8vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -1.3px;
+}
+
+.listening-greeting {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.listening-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.listening-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-inline-size: 0;
+  min-block-size: 80px;
+  padding: 10px;
+  background: var(--surface);
+  border-radius: var(--card-radius, 16px);
+  transition: background var(--motion-fast, 150ms);
+}
+
+.listening-shortcut:hover {
+  background: var(--surface-hover);
+}
+
+.listening-shortcut > img {
+  inline-size: 60px;
+  block-size: 60px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: calc(var(--card-radius, 16px) * 0.6);
+}
+
+.listening-shortcut > .listening-liked-art {
+  display: grid;
+  place-items: center;
+  inline-size: 60px;
+  block-size: 60px;
+  flex: 0 0 auto;
+  background: var(--raised);
+  color: var(--accent);
+  border-radius: calc(var(--card-radius, 16px) * 0.6);
+}
+
+.listening-shortcut > span {
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.listening-shortcut > svg {
+  margin-inline-start: auto;
+  flex: 0 0 auto;
+  inline-size: 20px;
+  color: var(--muted);
+}
+
+.home-page section + section {
+  margin-block-start: 30px;
+}
+
+.listening-shortcuts + .listening-mixes {
+  margin-block-start: 30px;
+}
+
+.home-page .section-heading h2 {
+  font-size: clamp(24px, 2.4vw, 30px);
+  letter-spacing: -0.8px;
+}
+
+.listening-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.listening-featured-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.listening-grid .album-card img {
+  border-radius: var(--card-radius, 16px);
+}
+
+.listening-grid .card-title,
+.listening-grid .album-card h3 {
+  margin-block-start: 12px;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.listening-grid .album-card p {
+  margin-block-start: 5px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.continue-list .track-list {
+  margin-block-start: 0;
+}
+
+.continue-list .track-row {
+  grid-template-columns: minmax(0, 1fr) 44px 44px;
+  gap: 8px;
+  min-block-size: 76px;
+  padding: 8px 0;
+}
+
+.continue-list .track-number,
+.continue-list .track-album,
+.continue-list .track-duration,
+.continue-list .track-header {
+  display: none;
+}
+
+.continue-list .track-art img {
+  inline-size: 60px;
+  block-size: 60px;
+  border-radius: calc(var(--card-radius, 16px) * 0.6);
+}
+
+.continue-list .track-title {
+  font-size: 16px;
+}
+
+.continue-list .track-artist {
+  font-size: 13px;
+}
+
+.continue-list .icon-button {
+  inline-size: 44px;
+  block-size: 44px;
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .playback-dock > .player-bar {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 1.2fr);
+  }
+}
+
+/* A short touch viewport remains a phone layout in landscape. Width alone
+   must not hide the only three top-level navigation targets. */
+@media (max-width: 760px), (pointer: coarse) and (max-height: 600px) {
+  .app-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell > .sidebar,
+  .main-shell .history-nav,
+  .main-shell .topbar-search,
+  .main-shell .studio-tag {
+    display: none;
+  }
+
+  .app-shell > .main-shell {
+    grid-area: 1 / 1;
+  }
+
+  .main-shell > .topbar {
+    min-block-size: calc(72px + var(--app-safe-top));
+    padding: var(--app-safe-top) max(20px, var(--app-safe-right)) 0
+      max(20px, var(--app-safe-left));
+    gap: 12px;
+    border: 0;
+  }
+
+  .main-shell .topbar-wordmark {
+    display: block;
+    min-inline-size: 0;
+    color: var(--text);
+    font:
+      800 30px "Manrope Variable",
+      sans-serif;
+    letter-spacing: -1.8px;
+    white-space: nowrap;
+  }
+
+  .topbar-wordmark > span {
+    color: var(--accent);
+  }
+
+  .main-shell .topbar-account {
+    gap: 8px;
+  }
+
+  .main-shell .topbar-settings {
+    display: flex;
+  }
+
+  .topbar-account .icon-button,
+  .topbar-account .avatar {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+
+  .topbar-account .button {
+    min-block-size: 44px;
+    padding-inline: 12px;
+  }
+
+  .main-shell > main {
+    scrollbar-gutter: auto;
+  }
+
+  .main-shell .page {
+    padding: 18px max(20px, var(--app-safe-right)) 28px
+      max(20px, var(--app-safe-left));
+  }
+
+  .main-shell .home-page {
+    padding-block-start: 4px;
+  }
+
+  .home-page .page-heading {
+    margin-block-end: 12px;
+  }
+
+  .home-page section + section {
+    margin-block-start: 24px;
+  }
+
+  .listening-shortcuts + .listening-mixes {
+    margin-block-start: 16px;
+  }
+
+  .home-page .section-heading {
+    margin-block-end: 10px;
+  }
+
+  .playback-dock {
+    padding-block-start: 6px;
+    gap: 6px;
+    border-block-start: 0;
+  }
+
+  .playback-dock > .player-bar {
+    display: flex;
+    justify-content: space-between;
+    block-size: var(--mini-player-height);
+    min-block-size: var(--mini-player-height);
+    margin-inline: 8px;
+    padding: 8px 12px;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--player-radius, 12px);
+    background: var(--surface);
+    box-shadow: none;
+  }
+
+  .playback-dock .player-center,
+  .playback-dock .player-extras,
+  .playback-dock .player-like {
+    display: none;
+  }
+
+  .playback-dock .playing-info {
+    flex: 1 1 auto;
+    gap: 10px;
+  }
+
+  .playback-dock .playing-art img,
+  .playback-dock .idle-art {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+
+  .playback-dock .playing-text {
+    gap: 3px;
+  }
+
+  .playback-dock .playing-text strong,
+  .playback-dock .playing-info > span strong {
+    display: block;
+    font-size: 13px;
+  }
+
+  .playback-dock .playing-text span,
+  .playback-dock .playing-info small {
+    font-size: 11px;
+  }
+
+  .playback-dock .mobile-transport {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 0;
+  }
+
+  .playback-dock .mobile-transport .icon-button {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+
+  .playback-dock .mini-progress {
+    display: block;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    block-size: 2px;
+    max-inline-size: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .playback-dock > .mobile-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    position: relative;
+    inset: auto;
+    block-size: var(--mobile-navigation-height);
+    min-block-size: var(--mobile-navigation-height);
+    padding: 6px 8px;
+    gap: 4px;
+    border: 0;
+    background: transparent;
+  }
+
+  .mobile-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 0;
+    min-block-size: 44px;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--muted);
+    border-radius: var(--control-radius, 12px);
+  }
+
+  .mobile-nav .selected {
+    color: var(--accent);
+  }
+
+  .playback-dock > .youtube-dock {
+    --youtube-card-width: min(376px, calc(100vw - 24px));
+    inset-inline-end: max(12px, var(--app-safe-right));
+    max-inline-size: calc(100% - 24px);
+  }
+
+  .dialog.now-playing {
+    --dialog-edge: 0px;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: var(--app-height, 100dvh);
+    max-block-size: var(--app-height, 100dvh);
+    border: 0;
+    border-radius: 0;
+    padding: max(8px, var(--app-safe-top)) max(20px, var(--app-safe-right))
+      max(20px, var(--app-safe-bottom)) max(20px, var(--app-safe-left));
+  }
+
+  .now-playing .now-playing-art {
+    inline-size: min(100%, calc(var(--app-height, 100dvh) * 0.29), 320px);
+    block-size: auto;
+    margin-inline: auto;
+  }
+
+  .listening-shortcuts {
+    gap: 8px;
+  }
+
+  .listening-shortcut {
+    min-block-size: 68px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .listening-shortcut > img,
+  .listening-shortcut > .listening-liked-art {
+    inline-size: 48px;
+    block-size: 48px;
+  }
+
+  .listening-shortcut > span {
+    font-size: 12px;
+  }
+
+  .listening-shortcut > svg {
+    inline-size: 14px;
+    block-size: 14px;
+  }
+
+  .listening-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+
+  .listening-grid .card-title,
+  .listening-grid .album-card h3 {
+    font-size: 15px;
+  }
+
+  .listening-grid .album-card p {
+    font-size: 12px;
+  }
+
+  .continue-list .track-row {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    min-block-size: 68px;
+    padding-block: 4px;
+  }
+
+  .continue-list .like-button {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .listening-shortcut > img,
+  .listening-shortcut > .listening-liked-art {
+    inline-size: 40px;
+    block-size: 40px;
+  }
+
+  .listening-shortcut > span {
+    font-size: 11px;
+  }
+}
+
+/* An IME can leave less height than the normal stacked dock. Keep playback
+   and all three 44px navigation targets in one row in that measured viewport. */
+:root[data-compact-viewport] .app-shell {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+:root[data-compact-viewport] .app-shell > .sidebar,
+:root[data-compact-viewport] .main-shell > .topbar,
+:root[data-compact-viewport] .playback-dock > .youtube-dock {
+  display: none;
+}
+
+:root[data-compact-viewport] .app-shell > .main-shell {
+  grid-area: 1 / 1;
+}
+
+:root[data-compact-viewport] .playback-dock {
+  grid-template-columns: minmax(0, 1fr) 132px;
+  grid-auto-rows: 52px;
+  gap: 4px;
+  padding-block-start: 4px;
+  padding-block-end: min(
+    var(--app-safe-bottom),
+    max(0px, calc(var(--app-height, 100dvh) - 56px))
+  );
+}
+
+:root[data-compact-viewport] .playback-dock > .player-bar {
+  display: flex;
+  grid-area: 1 / 1;
+  block-size: 52px;
+  min-block-size: 52px;
+  min-inline-size: 0;
+  padding: 3px 6px;
+  margin-inline: 4px 0;
+  gap: 4px;
+}
+
+:root[data-compact-viewport] .playback-dock .player-center,
+:root[data-compact-viewport] .playback-dock .player-extras,
+:root[data-compact-viewport] .playback-dock .player-like,
+:root[data-compact-viewport] .playback-dock .playing-art,
+:root[data-compact-viewport] .playback-dock .idle-art,
+:root[data-compact-viewport] .mobile-transport > :not(.mobile-play-button) {
+  display: none;
+}
+
+:root[data-compact-viewport] .playback-dock .playing-info {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+:root[data-compact-viewport] .playback-dock .playing-text {
+  justify-content: center;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+}
+
+:root[data-compact-viewport] .playback-dock .mobile-transport {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+:root[data-compact-viewport] .mobile-play-button {
+  inline-size: 44px;
+  block-size: 44px;
+}
+
+:root[data-compact-viewport] .playback-dock > .mobile-nav {
+  display: grid;
+  grid-area: 1 / 2;
+  grid-template-columns: repeat(3, 44px);
+  position: relative;
+  inset: auto;
+  block-size: 52px;
+  min-block-size: 52px;
+  padding: 4px 0;
+  gap: 0;
+}
+
+:root[data-compact-viewport] .mobile-nav a {
+  display: grid;
+  place-items: center;
+  position: relative;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+}
+
+:root[data-compact-viewport] .mobile-nav a > span {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-height: 500px) {
+  .library-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 12px;
+  }
+
+  .library-grid > .album-card,
+  .library-grid > .new-playlist-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    min-inline-size: 0;
+    min-block-size: 112px;
+    padding: 8px;
+    column-gap: 16px;
+    row-gap: 4px;
+    aspect-ratio: auto;
+    text-align: start;
+  }
+
+  .library-grid .liked-cover,
+  .library-grid .playlist-cover,
+  .library-grid > .new-playlist-card > svg {
+    grid-area: 1 / 1 / 3 / 2;
+    inline-size: 96px;
+    block-size: 96px;
+    margin: 0;
+  }
+
+  .library-grid > .new-playlist-card > svg {
+    inline-size: 32px;
+    block-size: 32px;
+    justify-self: center;
+  }
+
+  .library-grid .album-card h3,
+  .library-grid > .new-playlist-card > strong {
+    grid-area: 1 / 2;
+    align-self: end;
+    display: -webkit-box;
+    min-inline-size: 0;
+    margin: 0;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .library-grid .album-card p,
+  .library-grid > .new-playlist-card > span {
+    grid-area: 2 / 2;
+    align-self: start;
+    min-inline-size: 0;
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .dialog {
+    --dialog-edge: 8px;
+    padding: 16px;
+  }
+
+  .dialog.now-playing {
+    --dialog-edge: 0px;
+  }
+
+  .now-playing .now-playing-art {
+    inline-size: min(180px, calc(var(--app-height, 100dvh) * 0.26));
+  }
+}
+/* Queue actions wrap independently of the viewport and persistent dock. */
+.queue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.lyric-seek {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  text-align: inherit;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+.lyric-seek:disabled {
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .page-heading:has(.queue-actions) {
+    flex-wrap: wrap;
+  }
+  .queue-actions {
+    justify-content: flex-start;
+  }
+}
