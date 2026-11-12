@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "state": "review-candidate",
   "releaseReady": false,
-  "snapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
+  "snapshotSHA256": "64b18661737f866047377483f82ca39bb863f9be601608af69ccf1d7ee85099f",
   "safetyScan": "passed-heuristic",
   "sourceBuildVerified": false,
   "binaryReleaseVerified": false,
@@ -25,17 +25,17 @@
     {
       "id": "runtime-source-inventory",
       "status": "verified",
-      "detail": "The separate runtime-only native projection verifies 8 unchanged Kotlin sources and its 99-path declared build/license closure; public consumer pin omits only the private receipt reference. Clean native rebuilding remains pending."
+      "detail": "The separate runtime-only native projection verifies 8 unchanged Kotlin sources and its 99-path declared build/license closure. Its reviewed runtime recipe was clean-built for both supported arm64 slices; original full-fixture integrity checks and earlier private pins remain separate."
     },
     {
       "id": "snapshot-content-review",
       "status": "verified",
-      "detail": "The baseline 650-file inventory passed maintainer and independent scoped privacy/content checks. The only subsequent authored changes are the reviewed product source-preview schema, SourceNote and synthetic contract tests; source pins and bounded scans are repeated for the exact final inventory. No concrete P1/P2 was found within that scope. Heuristic scans do not prove absence of obfuscation; compressed JAR/PDF payloads and media content were not exhaustively inspected. This is not legal or binary clearance."
+      "detail": "The 9 native source/build changes and 3 Android inventory helpers passed bounded independent content/privacy review against their exact hashes. The public build instructions and corrected inventory README passed a separate bounded review; its QA-mode wording was narrowed as requested. No P1/P2 remained in that delta. Previous public content review and unchanged web inputs are retained; no private history, environment, user library or device receipts are included. This is not a formal security/legal audit."
     },
     {
       "id": "clean-web-build",
       "status": "verified",
-      "detail": "Clean npm ci --ignore-scripts --no-audit --no-fund passed. Lint, typecheck, all 751 tests in 51 files with one worker, and production build passed with unchanged assertions/timeouts. The initial default two-worker run timed out at the 10-second WASM database setup in two suites; that failed receipt remains recorded. Six Chromium/WebKit loopback music journeys and 12 source-note responsive checks passed. All 650 source hashes/sizes/modes remained unchanged; temporary server stopped. Local maintainer attestation, not public CI.",
+      "detail": "Clean npm ci --ignore-scripts --no-audit --no-fund passed. Lint, typecheck, all 751 tests in 51 files with one worker, and production build passed with unchanged assertions/timeouts. The initial default two-worker run timed out at the 10-second WASM database setup in two suites; that failed receipt remains recorded. Six Chromium/WebKit loopback music journeys and 12 source-note responsive checks passed. All 650 source hashes/sizes/modes remained unchanged; temporary server stopped. Local maintainer attestation, not public CI. The subsequent changes affect only native Apple code/runtime recipes; all 209 previously tested web runtime input hashes remain unchanged.",
       "evidence": {
         "testedSnapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
         "sourceManifestSHA256": "d364492a6ef1c5253cf47608a1e845e8fb51a90aeb217d5fc03636809c1b6927",
@@ -54,18 +54,38 @@
           "Chromium/WebKit loopback music journeys: 6/6",
           "Chromium/WebKit source-link responsive checks: 12/12"
         ],
-        "initialParallelVerify": "failed: 10-second database setup hooks in two suites"
+        "initialParallelVerify": "failed: 10-second database setup hooks in two suites",
+        "unchangedWebRuntimeSourceSHA256": "9a6402a79c57bed4c7d9a52f7677e208d5f1860575b562bf08794395dd7b6dd7"
       }
     },
     {
       "id": "apple-runtime-closure",
-      "status": "pending",
-      "detail": "Clean external-JDK21/Xcode rebuild, synthetic interop and candidate-pin review remain pending; the separate source manifest/inventory check is verified."
+      "status": "verified",
+      "detail": "The 99-path runtime-only source/build/license projection was clean-built for macOS arm64 and iOS arm64 using official-SHA-verified JDK21/KotlinNative2.4.21 and an isolated compiler dependency cache. Mac synthetic Swift interop executed; iOS interop compiled/linked. Reviewed source metadata/DWARF normalization retained debug info while home/workspace/build markers were zero in both actual static binaries. The rebuilt candidate received independent source/artifact review and local staging approval. This does not establish full application behavior, binary notice completeness or distribution readiness.",
+      "evidence": {
+        "runtimeSourceManifestSHA256": "a587c4e084fe5687f98fa7d87afe5887640871216478bb0ddd147e667881fc05",
+        "macosBinarySHA256": "97e2bb05b312db4ac8659ab9b426ea7cc7de35fb84d68bb17ade42f791cd1c8b",
+        "iosBinarySHA256": "a3734896d721d719dd920ba0cf425e83238f0309b027865daf9a1538e1fb30cf",
+        "frameworkTreeSHA256": "3fbf10151e9af7f38f279aac99ad114e792e25573ef9a1eb871a1eeaa76a8a74",
+        "binaryReleaseApproved": false
+      }
     },
     {
       "id": "android-corresponding-source",
       "status": "pending",
-      "detail": "Capture exact resolved InnerTubeX/Quack and transitive artifacts, source pins, license texts and checksums."
+      "detail": "Actual releaseRuntimeClasspath resolution and artifact hashing passed: 130 modules, 4 project nodes, 509 edges and 96 external artifacts, with no unresolved errors. InnerTubeX v0.11.2 and QuackJS 0.1.2 Android artifacts are confirmed. Matching immutable source/build/license inputs and AAR-to-source correspondence remain unverified; cache POM/module metadata is not sufficient. Consolidated Android notices/source and final APK inspection are still pending.",
+      "evidence": {
+        "configuration": "releaseRuntimeClasspath",
+        "externalModules": 130,
+        "projectNodes": 4,
+        "edges": 509,
+        "externalArtifacts": 96,
+        "resolutionErrors": 0,
+        "innerTubeXAndroidAARSHA256": "8cef66c32ffd8a31d03c893cbed6d2cec688c442e30ff999298071824a6f7397",
+        "quackJSAndroidAARSHA256": "dc98b90789e5335df4edabcb31abdba4354a03f45a33fbfb65d5ffc1ea6d062f",
+        "sourceClosureComplete": false,
+        "binaryReleaseReady": false
+      }
     },
     {
       "id": "apple-resource-provenance",
@@ -75,7 +95,7 @@
     {
       "id": "native-artifact-correspondence",
       "status": "pending",
-      "detail": "Tie a newly built native artifact to this exact source/resource snapshot; no correspondence to an earlier private app is claimed."
+      "detail": "A fresh signed private iPhone test app was built from the exact reviewed 651-input projection with the separately approved rebuilt Quack framework and generated public artwork, then installed without deleting its data container. Representative layout checks and a captured 16-second offline/background proof passed; an initial short proof failed with an unresolved generic decoder reason and is retained. This is bounded iPhone evidence only: Android/Mac final artifacts, complete lifecycle and binary notice/source checks remain pending; no installer release is approved."
     },
     {
       "id": "binary-notices",

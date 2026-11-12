@@ -6,7 +6,6 @@ struct MusicDiscoveryView: View {
     @ObservedObject var model: AureliaModel
     @ObservedObject var cloud: CloudAccountStore
     @ObservedObject var music: CloudMusicStore
-    @ScaledMetric(relativeTo: .body) private var cardWidth = 172.0
 
     var body: some View {
         ScrollView {
@@ -28,7 +27,7 @@ struct MusicDiscoveryView: View {
                             .frame(maxWidth: .infinity, alignment: .leading).padding(16)
                     }.buttonStyle(.plain).background(theme.card, in: RoundedRectangle(cornerRadius: 16))
                 }
-                moodSearches
+                MusicMoodSearches(model: model, cloud: cloud, music: music)
                 HStack(alignment: .firstTextBaseline) {
                     SectionHeading(title: "Explore selections", subtitle: "Public metadata from YouTube Music")
                     Button { Task { await music.loadDiscovery() } } label: {
@@ -46,11 +45,7 @@ struct MusicDiscoveryView: View {
                             if section.tracks.isEmpty {
                                 Text("No songs in this selection yet.").font(.subheadline).foregroundStyle(.secondary)
                             } else {
-                                ScrollView(.horizontal) {
-                                    LazyHStack(alignment: .top, spacing: 16) {
-                                        ForEach(section.tracks) { track in discoveryCard(track) }
-                                    }.padding(.bottom, 6)
-                                }.scrollIndicators(.hidden)
+                                MusicDiscoveryCarousel(model: model, cloud: cloud, tracks: section.tracks)
                             }
                         }
                     }
@@ -83,7 +78,37 @@ struct MusicDiscoveryView: View {
         .refreshable { await music.loadDiscovery() }
     }
 
-    private func discoveryCard(_ track: TrackDTO) -> some View {
+    private func discoveryDate(_ value: String) -> Date? {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter.date(from: value) ?? ISO8601DateFormatter().date(from: value)
+    }
+}
+
+/// Shared with the isolated layout scene; production keeps the same spacing and scaling.
+struct MusicDiscoveryCarousel: View {
+    @ObservedObject var model: AureliaModel
+    @ObservedObject var cloud: CloudAccountStore
+    let tracks: [TrackDTO]
+
+    var body: some View {
+        ScrollView(.horizontal) {
+            LazyHStack(alignment: .top, spacing: 16) {
+                ForEach(tracks) { track in
+                    MusicDiscoveryCard(model: model, cloud: cloud, track: track).id(track.id)
+                }
+            }.padding(.bottom, 6)
+        }.scrollIndicators(.hidden)
+    }
+}
+
+private struct MusicDiscoveryCard: View {
+    @ObservedObject var model: AureliaModel
+    @ObservedObject var cloud: CloudAccountStore
+    let track: TrackDTO
+    @ScaledMetric(relativeTo: .body) private var cardWidth = 172.0
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             CloudArtwork(track: track, radius: 14).frame(width: cardWidth, height: cardWidth)
             Text(track.title).font(.subheadline.weight(.semibold)).lineLimit(2, reservesSpace: true)
@@ -92,8 +117,15 @@ struct MusicDiscoveryView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }.frame(width: cardWidth, alignment: .leading)
     }
+}
 
-    private var moodSearches: some View {
+struct MusicMoodSearches: View {
+    @Environment(\.aureliaPalette) private var theme
+    @ObservedObject var model: AureliaModel
+    @ObservedObject var cloud: CloudAccountStore
+    @ObservedObject var music: CloudMusicStore
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Set the mood").font(.headline)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 125), spacing: 10)], spacing: 10) {
@@ -105,12 +137,6 @@ struct MusicDiscoveryView: View {
                 }
             }
         }
-    }
-
-    private func discoveryDate(_ value: String) -> Date? {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        return formatter.date(from: value) ?? ISO8601DateFormatter().date(from: value)
     }
 }
 

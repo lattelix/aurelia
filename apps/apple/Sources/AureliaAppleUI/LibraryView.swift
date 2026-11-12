@@ -2,42 +2,71 @@ import SwiftUI
 
 struct TrackList: View {
     @Environment(\.aureliaPalette) private var theme
+    @Environment(\.dynamicTypeSize) private var typeSize
     @ObservedObject var model: AureliaModel
     let tracks: [StudioTrack]
     var playlistID: UUID?
     var body: some View {
         LazyVStack(spacing: 0) {
             ForEach(Array(tracks.enumerated()), id: \.element.id) { index, track in
-                HStack(spacing: 12) {
-                    Button { model.play(tracks, at: index) } label: {
-                        HStack(spacing: 12) {
-                            Artwork(id: track.albumID, radius: 7).frame(width: 48, height: 48)
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(track.title).font(.subheadline.weight(.semibold))
-                                    .foregroundStyle(model.current?.id == track.id ? theme.accent : .primary)
-                                Text("\(track.artist) · \(track.album)").font(.caption).foregroundStyle(.secondary)
-                            }.lineLimit(1)
-                            Spacer(minLength: 4)
-                        }.contentShape(Rectangle())
-                    }.buttonStyle(.plain).accessibilityLabel("Play \(track.title), \(track.artist)")
-                    Text("1:12").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
-                    SymbolButton(symbol: model.profile.likes.contains(track.id) ? "heart.fill" : "heart",
-                                 label: model.profile.likes.contains(track.id) ? "Unlike \(track.title)" : "Like \(track.title)",
-                                 active: model.profile.likes.contains(track.id), size: 17) { model.toggleLike(track) }
-                    Menu {
-                        Button("Play next", systemImage: "text.line.first.and.arrowtriangle.forward") { model.playNext(track) }
-                        Button("Add to queue", systemImage: "text.badge.plus") { model.addToQueue(track) }
-                        if model.profile.playlists.isEmpty { Text("Create a playlist in Library to add songs") }
-                        ForEach(model.profile.playlists) { playlist in
-                            Button("Add to \(playlist.name)") { model.add(track, to: playlist.id) }
+                Group {
+                    if typeSize.isAccessibilitySize {
+                        stackedRow(track, at: index)
+                    } else {
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 12) {
+                                selection(track, at: index).frame(minWidth: 180, maxWidth: .infinity, alignment: .leading)
+                                actions(track)
+                            }
+                            stackedRow(track, at: index)
                         }
-                        if let playlistID { Button("Remove from playlist", role: .destructive) { model.remove(track, from: playlistID) } }
-                    } label: { Image(systemName: "ellipsis").frame(minWidth: 44, minHeight: 44).contentShape(Rectangle()) }
-                    .fixedSize().accessibilityLabel("More for \(track.title)")
+                    }
                 }.padding(.vertical, 8)
                 if index < tracks.count - 1 { Divider().padding(.leading, 60) }
             }
         }
+    }
+
+    private func stackedRow(_ track: StudioTrack, at index: Int) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            selection(track, at: index)
+            actions(track).frame(maxWidth: .infinity, alignment: .trailing)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func selection(_ track: StudioTrack, at index: Int) -> some View {
+        Button { model.play(tracks, at: index) } label: {
+            HStack(spacing: 12) {
+                Artwork(id: track.albumID, radius: 7).frame(width: 48, height: 48)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(track.title).font(.subheadline.weight(.semibold))
+                        .foregroundStyle(model.current?.id == track.id ? theme.accent : .primary)
+                    Text("\(track.artist) · \(track.album)").font(.caption).foregroundStyle(.secondary)
+                }
+                .lineLimit(typeSize.isAccessibilitySize ? nil : 1)
+                .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 4)
+            }.contentShape(Rectangle())
+        }.buttonStyle(.plain).accessibilityLabel("Play \(track.title), \(track.artist)")
+    }
+
+    private func actions(_ track: StudioTrack) -> some View {
+        HStack(spacing: 12) {
+            Text("1:12").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+            SymbolButton(symbol: model.profile.likes.contains(track.id) ? "heart.fill" : "heart",
+                         label: model.profile.likes.contains(track.id) ? "Unlike \(track.title)" : "Like \(track.title)",
+                         active: model.profile.likes.contains(track.id), size: 17) { model.toggleLike(track) }
+            Menu {
+                Button("Play next", systemImage: "text.line.first.and.arrowtriangle.forward") { model.playNext(track) }
+                Button("Add to queue", systemImage: "text.badge.plus") { model.addToQueue(track) }
+                if model.profile.playlists.isEmpty { Text("Create a playlist in Library to add songs") }
+                ForEach(model.profile.playlists) { playlist in
+                    Button("Add to \(playlist.name)") { model.add(track, to: playlist.id) }
+                }
+                if let playlistID { Button("Remove from playlist", role: .destructive) { model.remove(track, from: playlistID) } }
+            } label: { Image(systemName: "ellipsis").frame(minWidth: 44, minHeight: 44).contentShape(Rectangle()) }
+            .fixedSize().accessibilityLabel("More for \(track.title)")
+        }.fixedSize(horizontal: true, vertical: false)
     }
 }
 

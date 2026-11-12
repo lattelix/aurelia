@@ -21,6 +21,7 @@ def output(command, env):
 
 
 def build_plan(root, target, environment, host=None):
+    root = root.resolve()
     if (host or (platform.system(), platform.machine())) != ("Darwin", "arm64"):
         raise ValueError("An Apple Silicon Mac is required; supported targets are macos_arm64 and ios_arm64.")
     if target not in ("macos_arm64", "ios_arm64"):
@@ -49,7 +50,11 @@ def build_plan(root, target, environment, host=None):
     env.setdefault("JAVA_OPTS", "-Xmx2g")
     destination = root / "build" / target / "AureliaQuack"
     sources = [root / "vendor/quackjs" / packaging.RUNTIME_PREFIX / name for name in packaging.RUNTIME_NAMES]
+    # Normalize both serialized Kotlin source entries and DWARF; either alone leaves paths.
+    # These remain individual argv entries when the checkout contains spaces.
+    debug_prefix_map = f"-Xdebug-prefix-map={root.parents[1]}=."
     command = [str(compiler), "-target", target, "-produce", "framework", "-Xstatic-framework", "-g",
+               debug_prefix_map, f"-Xklib-relative-path-base={root.parents[1]}", "-Xbinary=debugCompilationDir=.",
                "-Xbinary=bundleId=com.lattelix.aurelia.quack", "-module-name", "AureliaQuack", "-o", str(destination),
                *map(str, sources), str(root / "src/QuackCipherBridge.kt")]
     return command, env

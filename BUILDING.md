@@ -65,6 +65,11 @@ InnerTubeX/Quack source and transitive dependency verification remain explicit
 release gates. A successful TypeScript bundle is not an APK acceptance test.
 Signing, installation and playback are separate checks.
 
+For a bounded inventory of the selected external runtime artifacts, see
+`apps/mobile/android/distribution/README.md`. This records module identities,
+variants, dependency edges and artifact hashes without building an APK. It does
+not collect all corresponding sources or establish license completeness.
+
 ## Standalone Apple client
 
 Use macOS, a compatible full Xcode installation with the macOS/iOS SDKs,
@@ -95,3 +100,12 @@ verification before distribution. Open `apps/apple/iOS/Aurelia.xcodeproj` for
 an iPhone build and select your own signing team. The public project deliberately
 contains no development-team assignment. No store approval or installer release
 is implied by compilation.
+
+For isolated layout inspection in a DEBUG iPhone build, set the launch arguments
+`--native-layout-qa --force-muted`. The fixture offers narrow widths, the twelve
+Dynamic Type sizes and light/dark appearance using synthetic in-memory state
+and bundled artwork. Its content actions are disabled; it is a visual test,
+not a real account or a VoiceOver acceptance test. Invalid or mixed recognized
+QA-mode arguments are rejected before initializing the normal profile. Release
+builds reject recognized QA-mode arguments. Remove the arguments and restart the app
+to return to normal use.

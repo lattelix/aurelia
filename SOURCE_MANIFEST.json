@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "snapshotSHA256": "6901f0621d734a9f19a324f3fe00606b6773ab67048287f1f207579667b6c834",
-  "totalBytes": 27351957,
+  "snapshotSHA256": "64b18661737f866047377483f82ca39bb863f9be601608af69ccf1d7ee85099f",
+  "totalBytes": 27410297,
   "files": [
     {
       "source": "distribution/source/templates/gitignore",
@@ -14,8 +14,8 @@
     {
       "source": "distribution/source/BUILDING.md",
       "path": "BUILDING.md",
-      "bytes": 4810,
-      "sha256": "1a404516e2407c8b5271a91a239e8bc8570649e1200115f56111ed799dd3b10c",
+      "bytes": 5698,
+      "sha256": "7412acc1967d2e41aaba21d68dac92cfcb35c6d72a84aefa372d3affc348a57e",
       "mode": "0644",
       "category": "public-document"
     },
@@ -94,8 +94,8 @@
     {
       "source": "apps/apple/Sources/AureliaAppleUI/Account/CloudListeningView.swift",
       "path": "apps/apple/Sources/AureliaAppleUI/Account/CloudListeningView.swift",
-      "bytes": 5688,
-      "sha256": "7e696cd865902ab4c06aabe6d143319d9bd0e964bb61bb90a2167973b5769c77",
+      "bytes": 6651,
+      "sha256": "dfa702817f7d7a08fc7e258ec096db94d10bcab1547411e63d91284695acb52e",
       "mode": "0644",
       "category": "source"
     },
@@ -174,8 +174,8 @@
     {
       "source": "apps/apple/Sources/AureliaAppleUI/AureliaRootView.swift",
       "path": "apps/apple/Sources/AureliaAppleUI/AureliaRootView.swift",
-      "bytes": 11220,
-      "sha256": "1df0a11c52f303b9cc06026ec3e5d400fe16a90f3f7c45e293d1fc00db518978",
+      "bytes": 11494,
+      "sha256": "c8c0a1b63e8c3151b730d1db659bfad0ff3ed1d2530ed689fb0f20918035bdec",
       "mode": "0644",
       "category": "source"
     },
@@ -188,10 +188,18 @@
       "category": "source"
     },
     {
+      "source": "apps/apple/Sources/AureliaAppleUI/DebugLayoutQA.swift",
+      "path": "apps/apple/Sources/AureliaAppleUI/DebugLayoutQA.swift",
+      "bytes": 15842,
+      "sha256": "4a512bf54d96cc72fbbfae118d34cef0235444a62f7239d8c362b050032844de",
+      "mode": "0644",
+      "category": "source"
+    },
+    {
       "source": "apps/apple/Sources/AureliaAppleUI/LibraryView.swift",
       "path": "apps/apple/Sources/AureliaAppleUI/LibraryView.swift",
-      "bytes": 9742,
-      "sha256": "c58db10c40c3448ff60be68c25f7dea5a04f552d3cb8c194f5a2dfee0080123d",
+      "bytes": 10755,
+      "sha256": "48b7a4fbf847814dc297f49b379fc91a89e8b822329a3b470490483fa7446af4",
       "mode": "0644",
       "category": "source"
     },
@@ -230,8 +238,8 @@
     {
       "source": "apps/apple/Sources/AureliaAppleUI/MusicDiscoveryView.swift",
       "path": "apps/apple/Sources/AureliaAppleUI/MusicDiscoveryView.swift",
-      "bytes": 12387,
-      "sha256": "70b5518e6748ef8ec9893a79074199c4e7a0a4553a298e9c7055c72020ec522f",
+      "bytes": 13122,
+      "sha256": "58eabd9b76336149a849ef9b519fd0c77ab02a4c68ebe3dce1e2fe6d658035fa",
       "mode": "0644",
       "category": "source"
     },
@@ -702,8 +710,8 @@
     {
       "source": "apps/apple/iOS/AureliaApp.swift",
       "path": "apps/apple/iOS/AureliaApp.swift",
-      "bytes": 2437,
-      "sha256": "d1af174398986a56cb0bead000a801eb83b4d276c8ae86f00e74f637a760e85b",
+      "bytes": 4866,
+      "sha256": "cd75df7736f6f05a705a31f7581be44d3fd062212950e967d0943aa15032b10d",
       "mode": "0644",
       "category": "build-input"
     },
@@ -1472,6 +1480,30 @@
       "path": "apps/mobile/android/capacitor.settings.gradle",
       "bytes": 213,
       "sha256": "1df6191a32d138aa3934f8e1b2626df22e95693fbf23e8167e26c3086390f3f3",
+      "mode": "0644",
+      "category": "build-input"
+    },
+    {
+      "source": "apps/mobile/android/distribution/README.md",
+      "path": "apps/mobile/android/distribution/README.md",
+      "bytes": 6391,
+      "sha256": "2804e775144ad5ab5f9806b6ee2f5c5d1568d21ca9fc3eb5366fa70422ab4c08",
+      "mode": "0644",
+      "category": "public-document"
+    },
+    {
+      "source": "apps/mobile/android/distribution/capture-runtime-inventory.py",
+      "path": "apps/mobile/android/distribution/capture-runtime-inventory.py",
+      "bytes": 14584,
+      "sha256": "71af2d2ccf14f930443fb6322b8cfa1f43f3241b8c2f479049d4ab554701f220",
+      "mode": "0644",
+      "category": "build-input"
+    },
+    {
+      "source": "apps/mobile/android/distribution/runtime-inventory.init.gradle",
+      "path": "apps/mobile/android/distribution/runtime-inventory.init.gradle",
+      "bytes": 13383,
+      "sha256": "9670feaabc77a5f16aea6218517a60cc297447d24430167cde2e03110cc12fda",
       "mode": "0644",
       "category": "build-input"
     },
@@ -3311,7 +3343,7 @@
       "source": "experiments/apple-quack-source/distribution/RUNTIME_SOURCE_MANIFEST.json",
       "path": "experiments/apple-quack-source/distribution/RUNTIME_SOURCE_MANIFEST.json",
       "bytes": 26238,
-      "sha256": "7e2a16768368bca8e08981930384cb164aca0e0a4ff686df64ad8eab5271a156",
+      "sha256": "a587c4e084fe5687f98fa7d87afe5887640871216478bb0ddd147e667881fc05",
       "mode": "0644",
       "category": "build-input"
     },
@@ -3886,8 +3918,8 @@
     {
       "source": "experiments/apple-quack-source/scripts/build-runtime-framework.py",
       "path": "experiments/apple-quack-source/scripts/build-runtime-framework.py",
-      "bytes": 4008,
-      "sha256": "714f5d7aef0741a3d94bcdc4e513566160cf661f4593886e1a90ee2599d6e4c0",
+      "bytes": 4384,
+      "sha256": "db41a4b5670519b1bbe22bcbbef40f78674ec391484ddbbbc73b96365cc48d60",
       "mode": "0644",
       "category": "build-input"
     },
@@ -3926,8 +3958,8 @@
     {
       "source": "experiments/apple-quack-source/scripts/tests/test_native_packaging.py",
       "path": "experiments/apple-quack-source/scripts/tests/test_native_packaging.py",
-      "bytes": 11593,
-      "sha256": "bb99f5b4b2e375faa3a015337fef570173819fdda6c2cb286508ec1b90263fea",
+      "bytes": 13055,
+      "sha256": "259e63ad2223a947c9696a92d0d08af1345e9176c1b5f5ddbf56540bdec415cb",
       "mode": "0644",
       "category": "build-input"
     },

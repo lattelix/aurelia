@@ -151,6 +151,26 @@ class ToolchainChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Apple Silicon"):
             builder.build_plan(EXPERIMENT, "ios_arm64", self.env, host=("Darwin", "x86_64"))
 
+    def test_debug_paths_are_relative_to_checkout_with_spaces_without_losing_debug_or_sources(self):
+        checkout = self.root / "public source checkout with spaces"
+        experiment = checkout / "experiments/apple-quack-source"
+        experiment.mkdir(parents=True)
+        experiment = experiment.resolve()
+        expected_sources = [experiment / "vendor/quackjs" / packaging.RUNTIME_PREFIX / name for name in (
+            "HotCharacterPlan.kt", "Limits.kt", "Math.kt", "PlayerProgram.kt",
+            "Runtime.kt", "SourceIndex.kt", "Specialization.kt", "Syntax.kt",
+        )] + [experiment / "src/QuackCipherBridge.kt"]
+        with patch.object(builder, "output", side_effect=self.answer):
+            for target in ("macos_arm64", "ios_arm64"):
+                command, _ = builder.build_plan(experiment, target, self.env, host=("Darwin", "arm64"))
+                maps = [arg for arg in command if arg.startswith("-Xdebug-prefix-map=")]
+                self.assertEqual(maps, [f"-Xdebug-prefix-map={checkout.resolve()}=."])
+                self.assertEqual(command.count(f"-Xklib-relative-path-base={checkout.resolve()}"), 1)
+                self.assertEqual(command.count("-Xbinary=debugCompilationDir=."), 1)
+                self.assertEqual(command.count("-g"), 1)
+                self.assertEqual([arg for arg in command if arg.endswith(".kt")], list(map(str, expected_sources)))
+                self.assertIn("-Xstatic-framework", command)
+
 
 class CandidatePinChecks(unittest.TestCase):
     def setUp(self):

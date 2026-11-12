@@ -3,6 +3,7 @@ import AureliaCloud
 
 struct CloudListeningView: View {
     @Environment(\.aureliaPalette) private var theme
+    @Environment(\.dynamicTypeSize) private var typeSize
     enum Kind { case history, recommendations }
     @ObservedObject var model: AureliaModel
     @ObservedObject var cloud: CloudAccountStore
@@ -31,20 +32,7 @@ struct CloudListeningView: View {
                         }
                         ForEach(entries) { entry in
                             VStack(alignment: .leading, spacing: 8) {
-                                HStack(spacing: 12) {
-                                    Button { play(entry.track, in: entries) } label: {
-                                        HStack(spacing: 12) {
-                                            CloudArtwork(track: entry.track, radius: 8).frame(width: 52, height: 52)
-                                            VStack(alignment: .leading, spacing: 4) {
-                                                Text(entry.track.title).font(.headline).foregroundStyle(.primary).lineLimit(2)
-                                                Text(entry.track.artist).font(.caption).foregroundStyle(.secondary).lineLimit(2)
-                                            }.frame(maxWidth: .infinity, alignment: .leading)
-                                        }.contentShape(Rectangle())
-                                    }.buttonStyle(.plain).disabled(!model.canPlayCloudTrack(entry.track))
-                                        .accessibilityLabel("Play \(entry.track.title), \(entry.track.artist)")
-                                    CloudTrackActions(model: model, cloud: cloud, track: entry.track, accountID: accountID,
-                                        play: { play(entry.track, in: entries) })
-                                }
+                                recommendationRow(entry.track, in: entries)
                                 HStack {
                                     Text(entry.reason).font(.caption).foregroundStyle(.secondary)
                                     Spacer()
@@ -70,6 +58,51 @@ struct CloudListeningView: View {
         .task { await refresh() }.refreshable { await refresh() }
         .onChange(of: cloud.account?.id) { _, _ in hidden = []; hiding = [] }
     }
+
+    private func recommendationRow(_ track: TrackDTO, in entries: [RecommendationDTO]) -> some View {
+        Group {
+            if typeSize.isAccessibilitySize {
+                stackedRecommendation(track, in: entries)
+            } else {
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 12) {
+                        selection(track, in: entries).frame(minWidth: 180, maxWidth: .infinity, alignment: .leading)
+                        actions(track, in: entries)
+                    }
+                    stackedRecommendation(track, in: entries)
+                }
+            }
+        }
+    }
+
+    private func stackedRecommendation(_ track: TrackDTO, in entries: [RecommendationDTO]) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            selection(track, in: entries)
+            actions(track, in: entries).frame(maxWidth: .infinity, alignment: .trailing)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func selection(_ track: TrackDTO, in entries: [RecommendationDTO]) -> some View {
+        Button { play(track, in: entries) } label: {
+            HStack(spacing: 12) {
+                CloudArtwork(track: track, radius: 8).frame(width: 52, height: 52)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(track.title).font(.headline).foregroundStyle(.primary)
+                    Text(track.artist).font(.caption).foregroundStyle(.secondary)
+                }
+                .lineLimit(typeSize.isAccessibilitySize ? nil : 2)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }.contentShape(Rectangle())
+        }.buttonStyle(.plain).disabled(!model.canPlayCloudTrack(track))
+            .accessibilityLabel("Play \(track.title), \(track.artist)")
+    }
+
+    private func actions(_ track: TrackDTO, in entries: [RecommendationDTO]) -> some View {
+        CloudTrackActions(model: model, cloud: cloud, track: track, accountID: accountID,
+            play: { play(track, in: entries) })
+    }
+
     private func refresh() async {
         guard cloud.account?.id == accountID else { return }
         if kind == .history { await cloud.refresh() }

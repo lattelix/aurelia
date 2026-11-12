@@ -17,11 +17,20 @@ public struct AureliaRootView: View {
     @ViewState private var selected: Destination? = .listen
     @ViewState private var phoneTab: Destination = .listen
     @ViewState private var showPlayer = false
-    @StateObject private var activity = PlaybackActivityRecorder()
+    @StateObject private var activity: PlaybackActivityRecorder
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
-    public init(model: AureliaModel) { self.model = model }
+    public init(model: AureliaModel) {
+        self.model = model
+        _activity = StateObject(wrappedValue: PlaybackActivityRecorder())
+    }
+    #if DEBUG
+    init(layoutQAModel model: AureliaModel) {
+        self.model = model
+        _activity = StateObject(wrappedValue: PlaybackActivityRecorder(defaults: nil))
+    }
+    #endif
 
     public var body: some View {
         shell
@@ -176,19 +185,21 @@ struct StudioView: View {
         .background(theme.background).navigationTitle("Studio")
     }
     private var hero: some View {
-        ZStack(alignment: .bottomLeading) {
-            Artwork(id: "afterglow", radius: 22).frame(height: 310).clipped()
-            LinearGradient(colors: [.clear, .black.opacity(0.8)], startPoint: .center, endPoint: .bottom)
-            VStack(alignment: .leading, spacing: 10) {
-                Text("AURELIA STUDIO").font(.caption.weight(.bold)).tracking(2)
-                Text("Stay in the golden hour.").font(.title.bold())
-                Text("Warm textures. Wide open skies.").font(.subheadline)
-                Button { model.play(StudioCatalogue.releases[0].tracks) } label: {
-                    Label("Play Afterglow", systemImage: "play.fill").font(.subheadline.bold()).padding(.vertical, 6)
-                }.buttonStyle(.borderedProminent).tint(.white).foregroundStyle(.black)
-            }.foregroundStyle(.white).padding(24)
+        VStack(alignment: .leading, spacing: 10) {
+            Text("AURELIA STUDIO").font(.caption.weight(.bold)).tracking(2)
+            Text("Stay in the golden hour.").font(.title.bold())
+            Text("Warm textures. Wide open skies.").font(.subheadline)
+            Button { model.play(StudioCatalogue.releases[0].tracks) } label: {
+                Label("Play Afterglow", systemImage: "play.fill").font(.subheadline.bold()).padding(.vertical, 6)
+            }.buttonStyle(.borderedProminent).tint(.white).foregroundStyle(.black)
         }
-        .frame(height: 310).clipShape(RoundedRectangle(cornerRadius: 22))
+        .foregroundStyle(.white).padding(24)
+        .frame(maxWidth: .infinity, minHeight: 310, alignment: .bottomLeading)
+        .background {
+            Artwork(id: "afterglow", radius: 22)
+                .overlay(LinearGradient(colors: [.clear, .black.opacity(0.8)], startPoint: .center, endPoint: .bottom))
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 22))
     }
 }
 

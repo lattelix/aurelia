@@ -472,8 +472,8 @@
     {
       "path": "experiments/apple-quack-source/scripts/build-runtime-framework.py",
       "role": "build-or-source-check",
-      "bytes": 4008,
-      "sha256": "714f5d7aef0741a3d94bcdc4e513566160cf661f4593886e1a90ee2599d6e4c0"
+      "bytes": 4384,
+      "sha256": "db41a4b5670519b1bbe22bcbbef40f78674ec391484ddbbbc73b96365cc48d60"
     },
     {
       "path": "experiments/apple-quack-source/scripts/build-runtime-framework.sh",
@@ -502,8 +502,8 @@
     {
       "path": "experiments/apple-quack-source/scripts/tests/test_native_packaging.py",
       "role": "build-or-source-check",
-      "bytes": 11593,
-      "sha256": "bb99f5b4b2e375faa3a015337fef570173819fdda6c2cb286508ec1b90263fea"
+      "bytes": 13055,
+      "sha256": "259e63ad2223a947c9696a92d0d08af1345e9176c1b5f5ddbf56540bdec415cb"
     },
     {
       "path": "experiments/apple-quack-source/scripts/toolchain.py",
